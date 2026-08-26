@@ -2,7 +2,7 @@ title: "Souleyman Ngbosando | Mechanical Engineering Portfolio"
 name: "Souleyman Ngbosando"
 headline: "Mechanical design, CAD, structural analysis and numerical modelling"
 description: >-
-  Projects in mechanical assembly design, manufacturing drawings and tolerancing,
+  Selected projects in mechanical design, CAD, manufacturing drawings and tolerancing,
   structural dynamics, model reduction and multiphysics simulation.
 url: "https://ngbosando.github.io"
 baseurl: ""
@@ -12,7 +12,7 @@ skills:
   - category: Mechanical design
     tools: [SolidWorks, Siemens NX, Fusion 360, FreeCAD automation, Assemblies and manufacturing drawings, ISO fits and tolerance stacks]
   - category: Mechanical analysis
-    tools: [ANSYS Workbench / APDL, RDM and sizing, Modal analysis and FRF, Fatigue and rotating dynamics, Contact modelling]
+    tools: [ANSYS Workbench / APDL, Strength of materials and sizing, Modal analysis and FRF, Fatigue and rotating dynamics, Contact modelling]
   - category: Numerical methods
     tools: [Python, Julia, MATLAB, Gmsh, WFEM / SAFE / Craig-Bampton / GBMS]
   - category: Multiphysics and research
