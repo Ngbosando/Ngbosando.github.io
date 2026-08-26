@@ -11,6 +11,11 @@ permalink: /projects/mechanical-assembly-design/
 ## Context
 The study concerns a belt-drive assembly built from a **shaft, pulley, two bearings, housings and a base**. The objective is to compare admissible mechanical architectures while keeping the design process deterministic and traceable.
 
+<figure>
+  <img src="{{ '/assets/images/assembly-exploded.svg' | relative_url }}" alt="Exploded mechanical assembly drawing">
+  <figcaption>Exploded view of reference assembly ASM_C229583.</figcaption>
+</figure>
+
 ## Shape grammar
 Each candidate keeps the sequence of rules that generated it.
 
@@ -28,25 +33,18 @@ ShapeGrammarDerivation(rules = [
 The grammar can write **314,928 combinations**. A randomized traversal was stopped after **14,624 sampled combinations**. This value is the sample size, not a filtering stage.
 
 ## Progressive screening
-<div class="pipeline"><div><b>1. Analytical feasibility</b><small>14,624 → 2,266<br>Tolerance chain, kinematics, budget, strength, bearing life, bolting, thermal growth and fatigue.</small></div><div><b>2. Campbell screening</b><small>2,266 → 2,000<br>Analytical rotating-order screening from 0 to 3,000 rpm.</small></div><div><b>3. CAD and FEM</b><small>2,000 → 1,935 solved → 1,654 accepted.</small></div><div><b>4. Selection</b><small>1,654 → 51 exact Pareto solutions → 9 final architectures.</small></div></div>
+<div class="pipeline"><div><b>1. Analytical feasibility</b><small>14,624 → 2,266<br>Tolerance chain, kinematics, strength, bearing life, bolting, thermal growth and fatigue.</small></div><div><b>2. Campbell screening</b><small>2,266 → 2,000<br>Analytical rotating-order screening from 0 to 3,000 rpm.</small></div><div><b>3. CAD and FEM</b><small>2,000 → 1,935 solved → 1,654 accepted.</small></div><div><b>4. Selection</b><small>1,654 → 51 exact Pareto solutions → 9 final architectures.</small></div></div>
 
-## Exploration and selection of concepts
-The grammar generates a large number of architectures. Candidates are compared on **mass, cost, unbalance amplitude and resonance margin**. Retained concepts are then inspected individually with their geometry and validation results.
+## Exploration and selection
+Candidates are compared on **mass, cost, unbalance amplitude and resonance margin**. A selected architecture is then inspected through its geometry and mechanical verification results.
 
 <div class="metric-strip"><div><b>314,928</b><span>possible combinations</span></div><div><b>14,624</b><span>sampled</span></div><div><b>1,654</b><span>accepted after FEM</span></div><div><b>9</b><span>final architectures</span></div></div>
 
-## Tolerance chain
-| Method | Reserved tolerance | Remaining margin |
-|---|---:|---:|
-| Worst case | 0.840 mm | **41.410 mm** |
-| RSS | 0.359 mm | 41.891 mm |
-| Bender | 0.538 mm | 41.712 mm |
-| Six Sigma | 0.779 mm | 41.471 mm |
-
-The tolerance chain does not govern the sizing of this architecture.
+## Manufacturing definition
+The detailed definition focuses on the interfaces that control assembly: bearing seats, pulley seat, shoulder, keyway, thread and axial retention. The reference shaft uses C45 steel and ISO fits on the functional diameters.
 
 ## Mechanical verification
-For reference candidate ASM_C229583, the calculated speed ceiling is **4,936 rpm** for a 3,000 rpm requirement. The model also gives **362,904 h bearing life**, a **fatigue factor of 10.58** and **0.0313 mm shaft deflection**.
+For reference candidate ASM_C229583, the calculated speed ceiling is **4,936 rpm** for a 3,000 rpm requirement. Bearing life, shaft deflection and fatigue are checked as feasibility constraints before the design is retained.
 
 ## Result
 The reference design weighs 0.775 kg and costs €423. Candidate ASM_C288079 reaches **0.469 kg and €416**, corresponding to **39.5% lower mass and 1.6% lower cost** than the reference.
