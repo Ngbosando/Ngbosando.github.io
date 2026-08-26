@@ -4,6 +4,7 @@ order: 3
 title: Acoustic absorber for additive manufacturing
 description: Multiphysics modelling of a controlled porous microstructure to identify transport parameters, predict acoustic absorption and guide geometry before additive manufacturing.
 skills: [COMSOL Multiphysics, SolidWorks, Homogenisation, Parametric design, Additive manufacturing, Analytical / numerical comparison]
+main-image: /assets/images/msme-thermal.svg
 permalink: /projects/acoustic-absorber/
 ---
 
