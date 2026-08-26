@@ -14,7 +14,7 @@ permalink: /projects/seven-wire-cable/
 
 <figure class="figure-wide technical-figure">
   <a href="{{ '/assets/images/cable-3d.svg' | relative_url }}"><img src="{{ '/assets/images/cable-3d.svg' | relative_url }}" alt="Three-dimensional seven-wire cable model"></a>
-  <figcaption>Detailed helical geometry and inter-wire contacts.</figcaption>
+  <figcaption>Detailed seven-wire geometry.</figcaption>
 </figure>
 
 ## Reduced model
@@ -24,11 +24,18 @@ permalink: /projects/seven-wire-cable/
   <figcaption>42-DOF beam-spring representation.</figcaption>
 </figure>
 
+## Dispersion
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/cable-dispersion.webp' | relative_url }}"><img src="{{ '/assets/images/cable-dispersion.webp' | relative_url }}" alt="Seven-wire dispersion results"></a>
+  <figcaption>Phase and energy velocity branches used to compare model formulations.</figcaption>
+</figure>
+
 ## Computation time
 
 <figure class="figure-wide technical-figure">
-  <a href="{{ '/assets/images/cable-computation-time.svg' | relative_url }}"><img src="{{ '/assets/images/cable-computation-time.svg' | relative_url }}" alt="Computation time comparison for the three cable models"></a>
-  <figcaption>3D FE, FE-WFEM-GBMS and beam-spring models.</figcaption>
+  <a href="{{ '/assets/images/cable-time.webp' | relative_url }}"><img src="{{ '/assets/images/cable-time.webp' | relative_url }}" alt="Computation time comparison between cable models"></a>
+  <figcaption>Beam-spring SAFE, beam-spring WFEM and FE-WFEM-GBMS.</figcaption>
 </figure>
 
 <div class="result-line"><b>Result</b><span>approximately 39,700 to 680 to 42 DOF; approximately 2,022 s to 6.3 s to 0.6 s.</span></div>
