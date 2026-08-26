@@ -8,28 +8,39 @@ main-image: /assets/images/assembly-exploded.svg
 permalink: /projects/mechanical-assembly-design/
 ---
 
-<div class="project-intro"><b>Objective</b><span>Explore several assembly architectures, eliminate infeasible concepts and retain mechanically valid designs.</span></div>
+<div class="project-intro"><b>Objective</b><span>Explore assembly architectures, eliminate infeasible concepts and retain mechanically valid designs.</span></div>
 
 ## Design space
 
-<figure class="figure-wide">
-  <img src="{{ '/assets/images/design-space.svg' | relative_url }}" alt="Assembly design space in MetaExplorer">
-  <figcaption>Generated architectures compared by mass, cost, unbalance and resonance margin.</figcaption>
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/design-space.svg' | relative_url }}"><img src="{{ '/assets/images/design-space.svg' | relative_url }}" alt="Assembly design space in MetaExplorer"></a>
+  <figcaption>Design space: mass, cost, unbalance and resonance margin.</figcaption>
+</figure>
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/design-selection.webp' | relative_url }}"><img src="{{ '/assets/images/design-selection.webp' | relative_url }}" alt="MetaExplorer selected assembly concepts"></a>
+  <figcaption>Concept selection with generated assembly geometries.</figcaption>
 </figure>
 
 <div class="metric-strip"><div><b>314,928</b><span>possible combinations</span></div><div><b>14,624</b><span>sampled</span></div><div><b>1,654</b><span>accepted after FE</span></div><div><b>9</b><span>final architectures</span></div></div>
 
-## Screening
-
-<div class="pipeline"><div><b>Analytical checks</b><small>Tolerance chain, kinematics, strength, bearing life, bolting, thermal growth, fatigue.</small></div><div><b>Campbell pre-screen</b><small>2,266 → 2,000 candidates.</small></div><div><b>CAD + FE</b><small>2,000 → 1,935 solved → 1,654 accepted.</small></div><div><b>Pareto selection</b><small>1,654 → 51 → 9 designs.</small></div></div>
-
 ## Assembly definition
 
-<figure class="figure-wide">
-  <img src="{{ '/assets/images/assembly-exploded.svg' | relative_url }}" alt="Exploded view of the reference mechanical assembly">
-  <figcaption>Reference assembly ASM_C229583: shaft, pulley, bearings, housings and base.</figcaption>
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/assembly-exploded.svg' | relative_url }}"><img src="{{ '/assets/images/assembly-exploded.svg' | relative_url }}" alt="Exploded view of reference assembly ASM_C229583"></a>
+  <figcaption>Reference assembly ASM_C229583.</figcaption>
 </figure>
 
-<div class="project-intro"><b>Checks</b><span>Functional interfaces, bearing life, fatigue, shaft deflection and rotating-speed margin.</span></div>
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/shaft-drawing.webp' | relative_url }}"><img src="{{ '/assets/images/shaft-drawing.webp' | relative_url }}" alt="Manufacturing drawing of shaft ASM_C229583"></a>
+  <figcaption>Shaft definition and functional fits.</figcaption>
+</figure>
+
+## Dynamic verification
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/campbell.webp' | relative_url }}"><img src="{{ '/assets/images/campbell.webp' | relative_url }}" alt="Campbell diagram for ASM_C229583"></a>
+  <figcaption>Campbell diagram for ASM_C229583. Required operating speed: 3,000 rpm. Calculated speed ceiling: approximately 4,936 rpm.</figcaption>
+</figure>
 
 <div class="result-line"><b>Result</b><span>Reference: 0.775 kg, €423. A retained alternative reaches 0.469 kg and €416.</span></div>
