@@ -4,6 +4,7 @@ order: 1
 title: Mechanical assembly design and selection
 description: Deterministic generation, screening and mechanical verification of shaft-pulley-bearing assemblies.
 skills: [Mechanical design, CAD automation, Tolerancing, Structural sizing / FEM, Rotating dynamics, Design space exploration]
+main-image: /assets/images/assembly-exploded.svg
 permalink: /projects/mechanical-assembly-design/
 ---
 
@@ -24,7 +25,7 @@ ShapeGrammarDerivation(rules = [
 ])
 ```
 
-The grammar can write **314,928 combinations**. A randomised traversal was stopped after **14,624 sampled combinations**. This value is the sample size, not a filtering stage.
+The grammar can write **314,928 combinations**. A randomized traversal was stopped after **14,624 sampled combinations**. This value is the sample size, not a filtering stage.
 
 ## Progressive screening
 <div class="pipeline"><div><b>1. Analytical feasibility</b><small>14,624 → 2,266<br>Tolerance chain, kinematics, budget, strength, bearing life, bolting, thermal growth and fatigue.</small></div><div><b>2. Campbell screening</b><small>2,266 → 2,000<br>Analytical rotating-order screening from 0 to 3,000 rpm.</small></div><div><b>3. CAD and FEM</b><small>2,000 → 1,935 solved → 1,654 accepted.</small></div><div><b>4. Selection</b><small>1,654 → 51 exact Pareto solutions → 9 final architectures.</small></div></div>
