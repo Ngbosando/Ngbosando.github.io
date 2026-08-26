@@ -36,6 +36,13 @@ permalink: /projects/mechanical-assembly-design/
   <figcaption>Shaft definition and functional fits.</figcaption>
 </figure>
 
+## Tolerance chain
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/tolerance-chain.svg' | relative_url }}"><img src="{{ '/assets/images/tolerance-chain.svg' | relative_url }}" alt="Axial tolerance chain of the retained assembly"></a>
+  <figcaption>Axial tolerance chain of the retained assembly.</figcaption>
+</figure>
+
 ## Dynamic verification
 
 <figure class="figure-wide technical-figure">
