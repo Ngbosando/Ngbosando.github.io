@@ -1,40 +1,35 @@
 ---
 layout: post
 order: 1
-title: Mechanical assembly design and selection
-description: Deterministic generation, screening and mechanical verification of shaft-pulley-bearing assemblies.
-skills: [Mechanical design, CAD automation, Tolerancing, Structural sizing / FEM, Rotating dynamics, Design space exploration]
+title: Mechanical assembly design
+description: Generation, screening, CAD definition and mechanical verification of shaft-pulley-bearing assemblies.
+skills: [Mechanical design, CAD automation, Tolerancing, Structural sizing / FEM, Rotating dynamics]
 main-image: /assets/images/assembly-exploded.svg
 permalink: /projects/mechanical-assembly-design/
 ---
 
-## Context
-The study concerns a belt-drive assembly built from a **shaft, pulley, two bearings, housings and a base**. The objective is to compare admissible mechanical architectures while keeping the design process deterministic and traceable.
+<div class="project-intro"><b>Objective</b><span>Explore several assembly architectures, eliminate infeasible concepts and retain mechanically valid designs.</span></div>
 
-<figure class="wide-figure">
-  <img src="{{ '/assets/images/assembly-exploded.svg' | relative_url }}" alt="Exploded mechanical assembly drawing">
-  <figcaption>Reference assembly ASM_C229583.</figcaption>
+## Design space
+
+<figure class="figure-wide">
+  <img src="{{ '/assets/images/design-space.svg' | relative_url }}" alt="Assembly design space in MetaExplorer">
+  <figcaption>Generated architectures compared by mass, cost, unbalance and resonance margin.</figcaption>
 </figure>
 
-## Generation and screening
-The shape grammar records the rule sequence used to generate each architecture. A randomized traversal samples the design space before analytical checks, CAD generation and finite-element verification.
+<div class="metric-strip"><div><b>314,928</b><span>possible combinations</span></div><div><b>14,624</b><span>sampled</span></div><div><b>1,654</b><span>accepted after FE</span></div><div><b>9</b><span>final architectures</span></div></div>
 
-<div class="pipeline"><div><b>Analytical feasibility</b><small>14,624 → 2,266</small></div><div><b>Campbell screening</b><small>2,266 → 2,000</small></div><div><b>CAD and FEM</b><small>2,000 → 1,935 solved → 1,654 accepted</small></div><div><b>Selection</b><small>1,654 → 51 Pareto → 9 final architectures</small></div></div>
+## Screening
 
-## Exploration and selection
-<figure class="wide-figure">
-  <img src="{{ '/assets/images/design-space.svg' | relative_url }}" alt="MetaExplorer assembly design space">
-  <figcaption>Mass, cost, unbalance and resonance margin are inspected together with the generated geometries.</figcaption>
+<div class="pipeline"><div><b>Analytical checks</b><small>Tolerance chain, kinematics, strength, bearing life, bolting, thermal growth, fatigue.</small></div><div><b>Campbell pre-screen</b><small>2,266 → 2,000 candidates.</small></div><div><b>CAD + FE</b><small>2,000 → 1,935 solved → 1,654 accepted.</small></div><div><b>Pareto selection</b><small>1,654 → 51 → 9 designs.</small></div></div>
+
+## Assembly definition
+
+<figure class="figure-wide">
+  <img src="{{ '/assets/images/assembly-exploded.svg' | relative_url }}" alt="Exploded view of the reference mechanical assembly">
+  <figcaption>Reference assembly ASM_C229583: shaft, pulley, bearings, housings and base.</figcaption>
 </figure>
 
-## Axial tolerance chain
-<figure class="wide-figure">
-  <img src="{{ '/assets/images/tolerance-chain.svg' | relative_url }}" alt="Axial tolerance chain of the reference shaft assembly">
-  <figcaption>Worst-case reserved tolerance: 0.840 mm. Remaining axial margin: 41.41 mm.</figcaption>
-</figure>
+<div class="project-intro"><b>Checks</b><span>Functional interfaces, bearing life, fatigue, shaft deflection and rotating-speed margin.</span></div>
 
-## Mechanical verification
-For reference candidate ASM_C229583, the calculated speed ceiling is **4,936 rpm** for a 3,000 rpm requirement. Bearing life, shaft deflection and fatigue are checked as feasibility constraints before the design is retained.
-
-## Result
-The reference design weighs 0.775 kg and costs €423. Candidate ASM_C288079 reaches **0.469 kg and €416**, corresponding to **39.5% lower mass and 1.6% lower cost** than the reference.
+<div class="result-line"><b>Result</b><span>Reference: 0.775 kg, €423. A retained alternative reaches 0.469 kg and €416.</span></div>
