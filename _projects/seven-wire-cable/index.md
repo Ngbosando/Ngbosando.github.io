@@ -28,7 +28,21 @@ permalink: /projects/seven-wire-cable/
 
 <figure class="figure-wide technical-figure">
   <a href="{{ '/assets/images/cable-dispersion.webp' | relative_url }}"><img src="{{ '/assets/images/cable-dispersion.webp' | relative_url }}" alt="Seven-wire dispersion results"></a>
-  <figcaption>Phase and energy velocity branches used to compare model formulations.</figcaption>
+  <figcaption>Dispersion branches used to compare model formulations.</figcaption>
+</figure>
+
+## Energy velocity
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/cable-energy.webp' | relative_url }}"><img src="{{ '/assets/images/cable-energy.webp' | relative_url }}" alt="Energy velocity comparison between cable models"></a>
+  <figcaption>Energy velocity comparison between reduced formulations and the finite-element reference.</figcaption>
+</figure>
+
+## Relative error
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/cable-error.webp' | relative_url }}"><img src="{{ '/assets/images/cable-error.webp' | relative_url }}" alt="Relative error between cable model formulations"></a>
+  <figcaption>Relative error used to quantify the effect of model reduction.</figcaption>
 </figure>
 
 ## Computation time
