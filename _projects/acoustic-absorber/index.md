@@ -9,15 +9,18 @@ permalink: /projects/acoustic-absorber/
 ---
 
 ## Context
-At the **MSME Laboratory**, the objective was to design and manufacture a controlled porous acoustic material whose absorption behaviour could be predicted. A JCAL-type macroscopic model requires transport parameters obtained from the microstructure.
+At the **MSME Laboratory**, the objective was to design and manufacture a controlled porous acoustic material whose absorption behaviour could be predicted from its microstructure.
 
-The workflow links **cell-scale geometry → transport parameters → predicted acoustic absorption → geometry choice before manufacturing**.
+<figure>
+  <img src="{{ '/assets/images/msme-thermal.svg' | relative_url }}" alt="COMSOL thermal transport simulation of porous microstructure">
+  <figcaption>Cell-scale COMSOL model used to identify transport properties before acoustic prediction and manufacturing.</figcaption>
+</figure>
 
-## Numerical characterisation
-For a reference geometry at porosity 0.46, the identified parameters included tortuosity 1.42, thermal permeability 5.81×10⁻⁹ m², viscous permeability 2.26×10⁻⁹ m², thermal characteristic length 288.30 µm and viscous characteristic length 202.62 µm.
+## Numerical model
+The workflow links **microstructure → transport parameters → acoustic absorption → geometry choice**. Transport properties are obtained numerically from the representative cell and introduced into the macroscopic acoustic model.
 
 ## Reformulation
-The viscostatic cell problem could not be implemented directly in COMSOL in the form initially derived. I returned to the **momentum conservation equation** and reformulated the problem in a numerically solvable form. The results were then compared with analytical estimates and expected trends with porosity.
+The initial viscostatic formulation could not be implemented directly in COMSOL. I returned to the momentum conservation equation and reformulated the problem in a numerically solvable form, then compared the results with analytical estimates.
 
 ## Parametric design
 For the reference case, the predicted absorption reaches approximately **0.92 around 2.5 kHz** for a 1 mm cell and a 25 mm layer. Increasing the layer thickness shifts the absorption peak toward lower frequencies.
