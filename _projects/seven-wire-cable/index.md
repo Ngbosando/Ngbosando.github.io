@@ -4,6 +4,7 @@ order: 2
 title: Seven-wire cable model reduction
 description: Comparison of three modelling levels for a seven-wire stranded cable, from a detailed 3D finite-element reference to reduced formulations for faster dispersion studies.
 skills: [ANSYS Workbench / APDL, Contact mechanics, Structural dynamics, WFEM / SAFE / GBMS, Model reduction, Validation]
+main-image: /assets/images/cable-3d.svg
 permalink: /projects/seven-wire-cable/
 ---
 
