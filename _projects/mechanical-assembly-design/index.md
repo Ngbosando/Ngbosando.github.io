@@ -11,40 +11,27 @@ permalink: /projects/mechanical-assembly-design/
 ## Context
 The study concerns a belt-drive assembly built from a **shaft, pulley, two bearings, housings and a base**. The objective is to compare admissible mechanical architectures while keeping the design process deterministic and traceable.
 
-<figure>
+<figure class="wide-figure">
   <img src="{{ '/assets/images/assembly-exploded.svg' | relative_url }}" alt="Exploded mechanical assembly drawing">
-  <figcaption>Exploded view of reference assembly ASM_C229583.</figcaption>
+  <figcaption>Reference assembly ASM_C229583.</figcaption>
 </figure>
 
-## Shape grammar
-Each candidate keeps the sequence of rules that generated it.
+## Generation and screening
+The shape grammar records the rule sequence used to generate each architecture. A randomized traversal samples the design space before analytical checks, CAD generation and finite-element verification.
 
-```julia
-ShapeGrammarDerivation(rules = [
-    Symbol("support_", candidate.support_family),
-    Symbol("base_", candidate.base_family),
-    Symbol("locate_", candidate.locating_bearing),
-    Symbol("stack_", candidate.stack_layout),
-    Symbol("torque_", candidate.torque_interface),
-    Symbol("retain_", candidate.axial_retention),
-])
-```
-
-The grammar can write **314,928 combinations**. A randomized traversal was stopped after **14,624 sampled combinations**.
-
-## Progressive screening
-<div class="pipeline"><div><b>1. Analytical feasibility</b><small>14,624 → 2,266<br>Tolerance chain, kinematics, strength, bearing life, bolting, thermal growth and fatigue.</small></div><div><b>2. Campbell screening</b><small>2,266 → 2,000<br>Analytical rotating-order screening from 0 to 3,000 rpm.</small></div><div><b>3. CAD and FEM</b><small>2,000 → 1,935 solved → 1,654 accepted.</small></div><div><b>4. Selection</b><small>1,654 → 51 exact Pareto solutions → 9 final architectures.</small></div></div>
+<div class="pipeline"><div><b>Analytical feasibility</b><small>14,624 → 2,266</small></div><div><b>Campbell screening</b><small>2,266 → 2,000</small></div><div><b>CAD and FEM</b><small>2,000 → 1,935 solved → 1,654 accepted</small></div><div><b>Selection</b><small>1,654 → 51 Pareto → 9 final architectures</small></div></div>
 
 ## Exploration and selection
-Candidates are compared on **mass, cost, unbalance amplitude and resonance margin**. Retained concepts are inspected individually with their geometry and validation results.
-
-<figure>
+<figure class="wide-figure">
   <img src="{{ '/assets/images/design-space.svg' | relative_url }}" alt="MetaExplorer assembly design space">
-  <figcaption>MetaExplorer view of the generated assembly design space and candidate families.</figcaption>
+  <figcaption>Mass, cost, unbalance and resonance margin are inspected together with the generated geometries.</figcaption>
 </figure>
 
-## Manufacturing definition
-The detailed definition focuses on the interfaces that control assembly: bearing seats, pulley seat, shoulder, keyway, thread and axial retention. The reference shaft uses C45 steel and ISO fits on the functional diameters.
+## Axial tolerance chain
+<figure class="wide-figure">
+  <img src="{{ '/assets/images/tolerance-chain.svg' | relative_url }}" alt="Axial tolerance chain of the reference shaft assembly">
+  <figcaption>Worst-case reserved tolerance: 0.840 mm. Remaining axial margin: 41.41 mm.</figcaption>
+</figure>
 
 ## Mechanical verification
 For reference candidate ASM_C229583, the calculated speed ceiling is **4,936 rpm** for a 3,000 rpm requirement. Bearing life, shaft deflection and fatigue are checked as feasibility constraints before the design is retained.
