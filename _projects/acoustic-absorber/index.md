@@ -31,4 +31,11 @@ permalink: /projects/acoustic-absorber/
   <figcaption>Influence of layer thickness on predicted acoustic absorption.</figcaption>
 </figure>
 
+## Design workflow
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/msme-workflow.svg' | relative_url }}"><img src="{{ '/assets/images/msme-workflow.svg' | relative_url }}" alt="Acoustic absorber design workflow"></a>
+  <figcaption>Geometry, transport properties and acoustic response.</figcaption>
+</figure>
+
 <div class="result-line"><b>Result</b><span>Reference case: predicted absorption approximately 0.92 around 2.5 kHz for a 1 mm cell and 25 mm layer.</span></div>
