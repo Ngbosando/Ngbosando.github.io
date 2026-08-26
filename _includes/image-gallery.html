@@ -1,0 +1,1 @@
+{% assign imgs = include.images | split: ',' %}<div class="image-gallery"{% if include.height %} style="--gallery-height:{{ include.height }}px"{% endif %}>{% for item in imgs %}{% assign src = item | strip %}<figure><img src="{{ src | relative_url }}" alt=""></figure>{% endfor %}</div>

@@ -1,0 +1,1 @@
+<section class="section skills-section" id="skills"><div class="section-heading"><span>Tools and methods</span><h2>Skills</h2></div><div class="skills-grid">{% for group in site.skills %}<div class="skill-card"><h3>{{ group.category }}</h3><ul>{% for tool in group.tools %}<li>{{ tool }}</li>{% endfor %}</ul></div>{% endfor %}</div></section>

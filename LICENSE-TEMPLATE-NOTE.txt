@@ -1,0 +1,1 @@
+This portfolio structure is based on the open-source Free to Engineer Portfolio Template by Lowinertia, released under CC0-1.0. The portfolio content, engineering work, figures and project text are specific to Souleyman Ngbosando.
