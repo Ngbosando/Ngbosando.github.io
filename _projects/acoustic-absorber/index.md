@@ -17,4 +17,18 @@ permalink: /projects/acoustic-absorber/
   <figcaption>Cell-scale COMSOL model used to identify transport properties.</figcaption>
 </figure>
 
+## Cell size
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/msme-size.webp' | relative_url }}"><img src="{{ '/assets/images/msme-size.webp' | relative_url }}" alt="Influence of cell size on acoustic absorption"></a>
+  <figcaption>Influence of the unit-cell size on predicted acoustic absorption.</figcaption>
+</figure>
+
+## Thickness
+
+<figure class="figure-wide technical-figure">
+  <a href="{{ '/assets/images/msme-thickness.webp' | relative_url }}"><img src="{{ '/assets/images/msme-thickness.webp' | relative_url }}" alt="Influence of absorber thickness on acoustic absorption"></a>
+  <figcaption>Influence of layer thickness on predicted acoustic absorption.</figcaption>
+</figure>
+
 <div class="result-line"><b>Result</b><span>Reference case: predicted absorption approximately 0.92 around 2.5 kHz for a 1 mm cell and 25 mm layer.</span></div>
