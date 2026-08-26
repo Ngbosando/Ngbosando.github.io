@@ -1,29 +1,27 @@
 ---
 layout: post
 order: 3
-title: Acoustic absorber for additive manufacturing
-description: Multiphysics modelling of a controlled porous microstructure to identify transport parameters, predict acoustic absorption and guide geometry before additive manufacturing.
-skills: [COMSOL Multiphysics, SolidWorks, Homogenisation, Parametric design, Additive manufacturing, Analytical / numerical comparison]
+title: Acoustic absorber
+description: COMSOL modelling of a controlled porous microstructure to guide acoustic design before additive manufacturing.
+skills: [COMSOL Multiphysics, SolidWorks, Homogenisation, Parametric design, Additive manufacturing]
 main-image: /assets/images/msme-thermal.svg
 permalink: /projects/acoustic-absorber/
 ---
 
-## Context
-At the **MSME Laboratory**, the objective was to design and manufacture a controlled porous acoustic material whose absorption behaviour could be predicted from its microstructure.
+<div class="project-intro"><b>Objective</b><span>Link the porous geometry to transport properties and predicted acoustic absorption before manufacturing.</span></div>
 
-<figure>
-  <img src="{{ '/assets/images/msme-thermal.svg' | relative_url }}" alt="COMSOL thermal transport simulation of porous microstructure">
-  <figcaption>Cell-scale COMSOL model used to identify transport properties before acoustic prediction and manufacturing.</figcaption>
+## Microstructure model
+
+<figure class="figure-wide">
+  <img src="{{ '/assets/images/msme-thermal.svg' | relative_url }}" alt="COMSOL simulation of the porous microstructure">
+  <figcaption>Representative cell used to identify transport properties.</figcaption>
 </figure>
 
-## Numerical model
-The workflow links **microstructure → transport parameters → acoustic absorption → geometry choice**. Transport properties are obtained numerically from the representative cell and introduced into the macroscopic acoustic model.
+## Workflow
 
-## Reformulation
-The initial viscostatic formulation could not be implemented directly in COMSOL. I returned to the momentum conservation equation and reformulated the problem in a numerically solvable form, then compared the results with analytical estimates.
+<figure class="figure-wide">
+  <img src="{{ '/assets/images/msme-workflow.svg' | relative_url }}" alt="Acoustic absorber modelling workflow">
+  <figcaption>Microstructure → transport parameters → acoustic model → geometry choice.</figcaption>
+</figure>
 
-## Parametric design
-For the reference case, the predicted absorption reaches approximately **0.92 around 2.5 kHz** for a 1 mm cell and a 25 mm layer. Increasing the layer thickness shifts the absorption peak toward lower frequencies.
-
-## Manufacturing preparation
-The geometries were prepared in SolidWorks and exported as STL files for additive manufacturing.
+<div class="result-line"><b>Result</b><span>Reference case: predicted absorption ≈0.92 around 2.5 kHz for a 1 mm cell and 25 mm layer.</span></div>
