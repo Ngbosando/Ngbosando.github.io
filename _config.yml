@@ -14,7 +14,7 @@ skills:
   - category: Calcul mécanique
     tools: [ANSYS Workbench / APDL, Résistance des matériaux et dimensionnement, Analyse modale et FRF, Fatigue et dynamique des rotors, Modélisation du contact]
   - category: Méthodes numériques
-    tools: [Python, Julia, MATLAB, Gmsh, WFEM / SAFE / Craig-Bampton / GBMS / Super-éléments]
+    tools: [Python, Julia, MATLAB, Gmsh, WFEM / SAFE / Craig-Bampton / GBMS]
   - category: Multiphysique
     tools: [COMSOL Multiphysics, Homogénéisation, Études paramétriques, Comparaison simulation / expérience]
 collections:
