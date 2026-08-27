@@ -8,7 +8,7 @@ main-image: /assets/images/assembly-exploded.png
 permalink: /projects/mechanical-assembly-design/
 ---
 
-<div class="project-intro"><b>Objectif</b><span>Générer des architectures mécaniques, éliminer les concepts non réalisables puis vérifier les solutions retenues par la CAO et le calcul mécanique.</span></div>
+<div class="project-intro"><b>Objectif :</b><span>Développer un premier prototype de conception générative capable de générer, filtrer et vérifier automatiquement des architectures mécaniques, avec une structure volontairement simple à manipuler et à étendre afin de traiter à terme des espaces de conception plus vastes et des systèmes plus complexes.</span></div>
 
 ## 1. Génération et filtrage des architectures
 
@@ -21,7 +21,7 @@ La grammaire génère les combinaisons possibles d’arbre, poulie, roulements, 
   <div><b>Sélection</b><small>51 solutions de Pareto<br>9 architectures finales</small></div>
 </div>
 
-<div class="figure-pair">
+<div class="figure-pair equal-figures">
   <figure class="technical-figure">
     <a href="{{ '/assets/images/design-space.png' | relative_url }}"><img src="{{ '/assets/images/design-space.png' | relative_url }}" alt="Espace de conception des assemblages mécaniques"></a>
     <figcaption>Comparaison des candidats admissibles dans l’espace de conception.</figcaption>
@@ -39,12 +39,12 @@ La grammaire génère les combinaisons possibles d’arbre, poulie, roulements, 
 
 ASM_C229583 est conservé comme référence stable pendant la vérification des critères de filtrage et des modèles réduits. L’architecture est ensuite reconstruite en assemblage puis traduite en géométrie de pièce fabricable.
 
-<figure class="figure-wide technical-figure">
+<figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/assembly-exploded.png' | relative_url }}"><img src="{{ '/assets/images/assembly-exploded.png' | relative_url }}" alt="Vue éclatée de ASM_C229583"></a>
   <figcaption>Vue éclatée utilisée pour vérifier la séquence d’assemblage, les interfaces et le maintien axial.</figcaption>
 </figure>
 
-<figure class="figure-wide technical-figure">
+<figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/shaft-drawing.png' | relative_url }}"><img src="{{ '/assets/images/shaft-drawing.png' | relative_url }}" alt="Plan de fabrication de l’arbre ASM_C229583"></a>
   <figcaption>Plan de l’arbre utilisé pour définir les diamètres fonctionnels, les longueurs et les ajustements.</figcaption>
 </figure>
@@ -53,12 +53,12 @@ ASM_C229583 est conservé comme référence stable pendant la vérification des 
 
 L’assemblage de référence est vérifié pour une vitesse de fonctionnement requise de 3 000 tr/min. La réponse dynamique et la tenue en fatigue de l’arbre sont ensuite contrôlées avant validation.
 
-<figure class="figure-wide technical-figure">
+<figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/campbell-c229583.png' | relative_url }}"><img src="{{ '/assets/images/campbell-c229583.png' | relative_url }}" alt="Diagramme de Campbell de ASM_C229583"></a>
   <figcaption>Diagramme de Campbell avec une vitesse limite calculée de 4 936 tr/min.</figcaption>
 </figure>
 
-<div class="figure-pair">
+<div class="figure-pair equal-figures">
   <figure class="technical-figure">
     <a href="{{ '/assets/images/frf-c229583.png' | relative_url }}"><img src="{{ '/assets/images/frf-c229583.png' | relative_url }}" alt="Réponse fréquentielle de ASM_C229583"></a>
     <figcaption>Vérification de la réponse fréquentielle de l’assemblage de référence.</figcaption>
