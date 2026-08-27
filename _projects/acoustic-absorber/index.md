@@ -1,31 +1,31 @@
 ---
 layout: post
 order: 3
-title: Acoustic absorber
-description: COMSOL modelling of a controlled porous microstructure to guide acoustic design before additive manufacturing.
-skills: [COMSOL Multiphysics, SolidWorks, Homogenisation, Parametric design, Additive manufacturing]
+title: Absorbeur acoustique
+description: Modélisation COMSOL d’une microstructure poreuse contrôlée afin de guider la conception acoustique avant fabrication additive.
+skills: [COMSOL Multiphysics, SolidWorks, Homogénéisation, Conception paramétrique, Fabrication additive]
 main-image: /assets/images/msme-thermal.svg
 permalink: /projects/acoustic-absorber/
 ---
 
-<div class="project-intro"><b>Objective</b><span>Link porous geometry to transport properties and acoustic absorption before manufacturing.</span></div>
+<div class="project-intro"><b>Objectif</b><span>Relier la géométrie poreuse aux propriétés de transport et à l’absorption acoustique avant fabrication.</span></div>
 
 ## Microstructure
 <figure class="figure-wide technical-figure">
-  <a href="{{ '/assets/images/msme-thermal.svg' | relative_url }}"><img src="{{ '/assets/images/msme-thermal.svg' | relative_url }}" alt="COMSOL simulation of porous microstructure"></a>
-  <figcaption>Cell-scale COMSOL model used to identify transport properties.</figcaption>
+  <a href="{{ '/assets/images/msme-thermal.svg' | relative_url }}"><img src="{{ '/assets/images/msme-thermal.svg' | relative_url }}" alt="Simulation COMSOL de la microstructure poreuse"></a>
+  <figcaption>Modèle COMSOL à l’échelle de la cellule utilisé pour identifier les propriétés de transport.</figcaption>
 </figure>
 
-## Cell size
+## Taille de cellule
 <figure class="figure-wide technical-figure">
-  <a href="{{ '/assets/images/msme-size.webp' | relative_url }}"><img src="{{ '/assets/images/msme-size.webp' | relative_url }}" alt="Influence of cell size"></a>
-  <figcaption>Influence of the unit-cell size on predicted acoustic absorption.</figcaption>
+  <a href="{{ '/assets/images/msme-size.webp' | relative_url }}"><img src="{{ '/assets/images/msme-size.webp' | relative_url }}" alt="Influence de la taille de cellule"></a>
+  <figcaption>Influence de la taille de la cellule élémentaire sur l’absorption acoustique prédite.</figcaption>
 </figure>
 
-## Thickness
+## Épaisseur
 <figure class="figure-wide technical-figure">
-  <a href="{{ '/assets/images/msme-thickness.webp' | relative_url }}"><img src="{{ '/assets/images/msme-thickness.webp' | relative_url }}" alt="Influence of absorber thickness"></a>
-  <figcaption>Influence of layer thickness on predicted acoustic absorption.</figcaption>
+  <a href="{{ '/assets/images/msme-thickness.webp' | relative_url }}"><img src="{{ '/assets/images/msme-thickness.webp' | relative_url }}" alt="Influence de l’épaisseur de l’absorbeur"></a>
+  <figcaption>Influence de l’épaisseur de la couche sur l’absorption acoustique prédite.</figcaption>
 </figure>
 
-<div class="result-line"><b>Result</b><span>Reference case: predicted absorption approximately 0.92 around 2.5 kHz for a 1 mm cell and 25 mm layer.</span></div>
+<div class="result-line"><b>Résultat</b><span>Cas de référence : absorption prédite d’environ 0,92 autour de 2,5 kHz pour une cellule de 1 mm et une couche de 25 mm.</span></div>
