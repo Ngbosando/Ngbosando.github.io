@@ -58,16 +58,8 @@ Les branches de dispersion constituent l’indicateur principal pour comparer le
   <figcaption>Erreur relative entre les formulations beam-spring, WFEM et la référence éléments finis réduite.</figcaption>
 </figure>
 
-## 4. Indicateurs dynamiques
 
-La comparaison ne se limite pas aux fréquences. Les vitesses associées aux branches sont également exploitées afin de vérifier que les modèles réduits conservent les informations nécessaires à l’étude de la propagation d’énergie.
-
-<figure class="figure-wide technical-figure single-figure">
-  <a href="{{ '/assets/images/cable-energy.png' | relative_url }}"><img src="{{ '/assets/images/cable-energy.png' | relative_url }}" alt="Comparaison de la vitesse d’énergie du câble"></a>
-  <figcaption>Comparaison de la vitesse d’énergie entre les formulations réduites et la référence.</figcaption>
-</figure>
-
-## 5. Gain en coût de calcul
+## 4. Gain en coût de calcul
 
 La réduction permet de choisir le niveau de détail adapté au besoin : modèle de référence pour les vérifications détaillées, FE-WFEM-GBMS pour une réduction intermédiaire et beam-spring pour l’exploration rapide de la dispersion.
 
@@ -83,6 +75,6 @@ La réduction permet de choisir le niveau de détail adapté au besoin : modèle
   <div><b>0,797 s</b><span>beam-spring SAFE</span></div>
 </div>
 
-## 6. Résultat
+## 5. Résultat
 
 La démarche établit une hiérarchie de modèles de complexité décroissante permettant de comparer rapidement les formulations et de sélectionner le niveau de détail adapté au besoin de calcul, sans utiliser systématiquement le modèle éléments finis le plus coûteux.
