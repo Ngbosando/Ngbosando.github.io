@@ -26,11 +26,23 @@ La démarche relie directement la géométrie poreuse aux performances acoustiqu
   <figcaption>Champ thermostatique calculé sur la cellule périodique utilisée pour identifier les propriétés de transport.</figcaption>
 </figure>
 
-## 2. Reformulation du problème viscostatique
+## 2. Reformulation et résolution du problème viscostatique
 
 La formulation viscostatique ne pouvait pas être implantée directement dans le module EDP utilisé. Le problème a donc été réécrit à partir de l’équation de conservation de la quantité de mouvement afin d’obtenir une forme directement résoluble sous COMSOL.
 
 <div class="result-line"><b>Choix de modélisation</b><span>Reformuler le problème au lieu de changer de méthode afin de conserver la chaîne d’homogénéisation prévue et les grandeurs de transport recherchées.</span></div>
+
+<div class="figure-pair equal-figures">
+  <figure class="technical-figure">
+    <a href="{{ '/assets/images/pression.jpeg' | relative_url }}"><img src="{{ '/assets/images/pression.jpeg' | relative_url }}" alt="Champ de pression obtenu après résolution sous COMSOL"></a>
+    <figcaption>Champ de pression obtenu après résolution du problème de cellule sous COMSOL.</figcaption>
+  </figure>
+
+  <figure class="technical-figure">
+    <a href="{{ '/assets/images/vts.jpeg' | relative_url }}"><img src="{{ '/assets/images/vts.jpeg' | relative_url }}" alt="Champ de vitesse obtenu après résolution sous COMSOL"></a>
+    <figcaption>Champ de vitesse obtenu après résolution du problème viscostatique sous COMSOL.</figcaption>
+  </figure>
+</div>
 
 ## 3. Contrôle des propriétés de transport
 
