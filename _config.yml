@@ -1,22 +1,22 @@
-title: "Souleyman Ngbosando | Mechanical Engineering Portfolio"
+title: "Souleyman Ngbosando | Portfolio ingénieur mécanique"
 name: "Souleyman Ngbosando"
-headline: "Mechanical design, CAD, tolerancing and structural analysis"
+headline: "Conception mécanique, CAO, tolérancement et analyse des structures"
 description: >-
-  Selected projects covering mechanical assemblies, manufacturing drawings,
-  tolerance analysis, structural dynamics, model reduction and multiphysics simulation.
+  Projets sélectionnés en conception mécanique, mise en plan, analyse de tolérances,
+  dynamique des structures, réduction de modèles et simulation multiphysique.
 url: "https://ngbosando.github.io"
 baseurl: ""
 external-links:
   github: Ngbosando
 skills:
-  - category: Mechanical design
-    tools: [SolidWorks, Siemens NX, Fusion 360, FreeCAD, Assemblies and manufacturing drawings, ISO fits and tolerance stacks]
-  - category: Mechanical analysis
-    tools: [ANSYS Workbench / APDL, Strength of materials and sizing, Modal analysis and FRF, Fatigue and rotating dynamics, Contact modelling]
-  - category: Numerical methods
+  - category: Conception mécanique
+    tools: [SolidWorks, Siemens NX, Fusion 360, FreeCAD, Assemblages et mises en plan, Ajustements ISO et chaînes de cotes]
+  - category: Calcul mécanique
+    tools: [ANSYS Workbench / APDL, Résistance des matériaux et dimensionnement, Analyse modale et FRF, Fatigue et dynamique des rotors, Modélisation du contact]
+  - category: Méthodes numériques
     tools: [Python, Julia, MATLAB, Gmsh, WFEM / SAFE / Craig-Bampton / GBMS]
-  - category: Multiphysics
-    tools: [COMSOL Multiphysics, Homogenisation, Parametric studies, Simulation / experiment comparison]
+  - category: Multiphysique
+    tools: [COMSOL Multiphysics, Homogénéisation, Études paramétriques, Comparaison simulation / expérience]
 collections:
   projects:
     output: true
