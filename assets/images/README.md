@@ -1,1 +1,0 @@
-Portfolio image assets. Original engineering figures only.
