@@ -65,14 +65,14 @@ La réduction permet de choisir le niveau de détail adapté au besoin : modèle
 
 <figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/cable-time.png' | relative_url }}"><img src="{{ '/assets/images/cable-time.png' | relative_url }}" alt="Comparaison des temps de calcul des modèles du câble"></a>
-  <figcaption>Temps mesurés sur le cas présenté : 0,797 s pour beam-spring SAFE, 2,411 s pour beam-spring WFEM et 940,334 s pour FE-WFEM-GBMS.</figcaption>
+  <figcaption>Temps de calcul pour un même balayage de dispersion : 0,6 s pour beam-spring SAFE, 6,3 s pour beam-spring WFEM et 2 022 s pour FE-WFEM-GBMS.</figcaption>
 </figure>
 
 <div class="metric-strip">
   <div><b>≈ 40 000</b><span>DDL du modèle EF initial</span></div>
   <div><b>676</b><span>DDL après FE-WFEM-GBMS</span></div>
   <div><b>42</b><span>DDL du modèle beam-spring</span></div>
-  <div><b>0,797 s</b><span>beam-spring SAFE</span></div>
+  <div><b>0,6 s</b><span>beam-spring SAFE</span></div>
 </div>
 
 ## 5. Résultat
