@@ -49,10 +49,10 @@ La formulation viscostatique ne pouvait pas être implantée directement dans le
 Les paramètres extraits sous COMSOL sont comparés aux estimations analytiques de la littérature. Ils permettent de valider les propriétés physiques du milieu poreux sur la plage de porosité ciblée.
 
 <div class="metric-strip">
-  <div><b>0,46</b><span>Porosité (&phi;)</span></div>
-  <div><b>1,42</b><span>Tortuosité (&alpha;&infin;)</span></div>
-  <div><b>5,81 &times; 10⁻⁹ m²</b><span>Perméabilité thermique (k'₀)</span></div>
-  <div><b>2,26 &times; 10⁻⁹ m²</b><span>Perméabilité visqueuse (k₀)</span></div>
+  <div><b>0,46</b><span>Porosité (φ)</span></div>
+  <div><b>1,42</b><span>Tortuosité (α∞)</span></div>
+  <div><b>5,81 × 10⁻⁹ m²</b><span>Perméabilité thermique (k'₀)</span></div>
+  <div><b>2,26 × 10⁻⁹ m²</b><span>Perméabilité visqueuse (k₀)</span></div>
 </div>
 
 ## 4. Étude paramétrique avant fabrication CAO
@@ -73,6 +73,6 @@ Une fois les propriétés de transport identifiées, le modèle acoustique perme
 
 ## 5. Résultat et orientation CAO / Impression 3D
 
-Pour le cas de référence (taille de cellule de **1 mm** et épaisseur de **25 mm**), le modèle prédit un coefficient d’absorption maximal de **&alpha; &approx; 0,92 autour de 2,5 kHz**. L’étude paramétrique sert ensuite à orienter la modélisation 3D sous SolidWorks et l'export des fichiers STL pour la fabrication d'échantillons par impression 3D.
+Pour le cas de référence (taille de cellule de **1 mm** et épaisseur de **25 mm**), le modèle prédit un coefficient d’absorption maximal de **α ≈ 0,92 autour de 2,5 kHz**. L’étude paramétrique sert ensuite à orienter la modélisation 3D sous SolidWorks et l'export des fichiers STL pour la fabrication d'échantillons par impression 3D.
 
-<div class="result-line"><b>Configuration retenue</b><span>l = 1 mm · L = 25 mm · &alpha; &approx; 0,92 à 2,5 kHz (fichiers STL générés sous SolidWorks)</span></div>
+<div class="result-line"><b>Configuration retenue</b><span>l = 1 mm · L = 25 mm · α ≈ 0,92 à 2,5 kHz (fichiers STL générés sous SolidWorks)</span></div>
