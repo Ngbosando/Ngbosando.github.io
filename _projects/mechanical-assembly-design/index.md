@@ -18,7 +18,7 @@ Une grammaire de conception génère l’ensemble des combinaisons possibles (ar
   <div><b>Grammaire</b><small>314 928 possibles<br>14 624 échantillonnés</small></div>
   <div><b>Filtrage analytique</b><small>2 266 admissibles<br>2 000 après Campbell</small></div>
   <div><b>CAO + FEM</b><small>1 935 calculés<br>1 654 validés</small></div>
-  <div><b>Sélection Pareto</b><small>51 solutions efficaces<br>9 architectures retenues</small></div>
+  <div><b>Compromis optimaux</b><small>51 solutions optimales<br>9 architectures retenues</small></div>
 </div>
 
 <div class="figure-pair equal-figures">
@@ -79,6 +79,6 @@ L’assemblage est dimensionné pour une vitesse nominale de fonctionnement de 3
 
 ## 4. Décision de conception & Gains
 
-Le concept `ASM_C229583` a servi de référence de validation. Après extraction du front de Pareto, l'architecture optimale `ASM_C288079` atteint **0,469 kg et 416 €**, contre **0,775 kg et 423 €** pour la référence initialement retenue. 
+Le concept `ASM_C229583` a servi de référence de validation. Après comparaison des **meilleurs compromis masse/coût**, l'architecture optimale `ASM_C288079` atteint **0,469 kg et 416 €**, contre **0,775 kg et 423 €** pour la référence initialement retenue. 
 
 Cela représente une **réduction de masse de 39,5 %** à coût égal, tout en garantissant le respect strict du cahier des charges mécanique et dynamique.
