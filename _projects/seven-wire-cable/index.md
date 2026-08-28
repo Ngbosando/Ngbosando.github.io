@@ -3,7 +3,7 @@ layout: post
 order: 2
 title: Réduction de modèle d’un câble à 7 torons
 description: Réduction progressive d’un modèle éléments finis de câble pour accélérer l’analyse de dispersion et de transmission vibratoire.
-skills: [ANSYS Workbench / APDL, Dynamique des structures, Mécanique du contact, WFEM / GBMS, Réduction de modèles]
+skills: [ANSYS Workbench / APDL, Dynamique des structures, Mécanique du contact, WFEM / GBMS, Réduction de modèles, super-éléments]
 main-image: /assets/images/cable-3d.png
 permalink: /projects/seven-wire-cable/
 ---
