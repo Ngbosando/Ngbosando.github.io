@@ -1,22 +1,22 @@
-title: "Souleyman Ngbosando | Portfolio ingénieur mécanique"
+title: "Souleyman Ngbosando | Ingénieur Calcul & Conception Mécanique"
 name: "Souleyman Ngbosando"
-headline: "Conception mécanique, CAO, tolérancement et analyse des structures"
+headline: "Calcul de structures, simulation numérique & conception mécanique"
 description: >-
-  Projets sélectionnés en conception mécanique, mise en plan, analyse de tolérances,
-  dynamique des structures, réduction de modèles et simulation multiphysique.
+  Portfolio d'ingénierie : calcul de structures par éléments finis (EF), dynamique, 
+  réduction de modèles, simulation multiphysique et conception CAO / tolérancement.
 url: "https://ngbosando.github.io"
 baseurl: ""
 external-links:
   github: Ngbosando
 skills:
-  - category: Conception mécanique
-    tools: [SolidWorks, Siemens NX, Fusion 360, FreeCAD, Assemblages et mises en plan, Ajustements ISO et chaînes de cotes]
-  - category: Calcul mécanique
-    tools: [ANSYS Workbench / APDL, Résistance des matériaux et dimensionnement, Analyse modale et FRF, Fatigue et dynamique des rotors, Modélisation du contact]
-  - category: Méthodes numériques
-    tools: [Python, Julia, MATLAB, Gmsh, WFEM / SAFE / Craig-Bampton / GBMS]
-  - category: Multiphysique
-    tools: [COMSOL Multiphysics, Homogénéisation, Études paramétriques, Comparaison simulation / expérience]
+  - category: Calcul mécanique & Dynamics
+    tools: [ANSYS Workbench / APDL, Abaqus, RDM & dimensionnement, Analyse modale & FRF, Fatigue & dynamique des rotors, Modélisation du contact]
+  - category: Méthodes numériques & Simulation
+    tools: [Python, Julia, MATLAB, Gmsh, WFEM / SAFE / Craig-Bampton / GBMS, Corrélation calculs-essais]
+  - category: Conception mécanique & CAO
+    tools: [SolidWorks, Siemens NX, Fusion 360, FreeCAD, Assemblages & mises en plan, Ajustements ISO & chaînes de cotes]
+  - category: Multiphysique & Matériaux
+    tools: [COMSOL Multiphysics, Homogénéisation, Études paramétriques, Caractérisation & essais]
 collections:
   projects:
     output: true
