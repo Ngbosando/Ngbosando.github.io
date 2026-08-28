@@ -8,7 +8,7 @@ main-image: /assets/images/cable-3d.png
 permalink: /projects/seven-wire-cable/
 ---
 
-<div class="project-intro"><b>Objectif :</b><span>Exploiter des sous-structures et des modèles réduits pour obtenir rapidement les indicateurs de dispersion d’un toron à 7 brins hélicoïdaux, tout en conservant la fidélité dynamique requise pour comparer les formulations de calcul.</span></div>
+<div class="project-intro"><b>Objectif :</b><span>Exploiter des sous-structures et des modèles réduits pour obtenir rapidement les indicateurs de dispersion d’un toron à 7 brins hélicoïdaux, afin d'adapter la fidélité dynamique requise et de viser l'étude de la transmission vibratoire en quasi-temps réel.</span></div>
 
 ## 1. Problème étudié
 
@@ -61,21 +61,23 @@ Les branches de dispersion constituent l’indicateur principal pour comparer le
 ## 4. Gain en coût de calcul
 
 La hiérarchisation des modèles permet d'adapter l'effort numérique au besoin industriel :
-* **Référence FE-WFEM-GBMS** (676 DDL) pour le contrôle de précision de référence[cite: 1].
-* **Beam-spring WFEM / SAFE** (42 DDL) pour la pré-analyse et l'exploration rapide de la dispersion en quelques fractions de seconde[cite: 1].
+* **Référence FE-WFEM-GBMS** (676 DDL) pour le contrôle de précision de référence.
+* **Beam-spring WFEM / SAFE** (42 DDL) pour la pré-analyse et l’exploration rapide de la dispersion en quelques fractions de seconde.
 
 <figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/cable-time.png' | relative_url }}"><img src="{{ '/assets/images/cable-time.png' | relative_url }}" alt="Comparaison des temps de calcul des modèles du câble"></a>
-  <figcaption>Temps de calcul mesurés pour un balayage de dispersion : 0,8 s (beam-spring SAFE), 2,4 s (beam-spring WFEM) et 940 s (référence FE-WFEM-GBMS).</figcaption>
+  <figcaption>Temps de calcul mesurés pour un même balayage de dispersion : 0,6 s pour beam-spring SAFE, 6,3 s pour beam-spring WFEM et 2 022 s pour FE-WFEM-GBMS.</figcaption>
 </figure>
 
 <div class="metric-strip">
   <div><b>≈ 40 000</b><span>DDL du modèle EF initial</span></div>
   <div><b>676</b><span>DDL après FE-WFEM-GBMS</span></div>
   <div><b>42</b><span>DDL du modèle beam-spring</span></div>
-  <div><b>< 1 s</b><span>Pré-analyse beam-spring</span></div>
+  <div><b>0,6 s</b><span>beam-spring SAFE</span></div>
 </div>
 
 ## 5. Résultat
 
-La méthodologie mise en place fournit une stratégie de sous-structuration efficace : elle permet de sélectionner à la volée le niveau de réduction adapté au besoin de calcul (analyse exploratoire rapide ou validation fine), évitant le recours systématique au modèle éléments finis complet le plus coûteux[cite: 1].
+La méthodologie mise en place fournit une stratégie de sous-structuration efficace : elle permet de sélectionner à la volée le niveau de réduction adapté au besoin de calcul (analyse exploratoire rapide ou validation fine), évitant le recours systématique au modèle éléments finis complet le plus coûteux. 
+
+À terme, cette baisse drastique des temps de calcul ouvre la voie à **l'évaluation et au suivi de la transmission vibratoire en quasi-temps réel** sur des structures élancées complexes.
