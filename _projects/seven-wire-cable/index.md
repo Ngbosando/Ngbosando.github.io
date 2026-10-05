@@ -66,7 +66,7 @@ La hiérarchisation des modèles permet d'adapter l'effort numérique au besoin 
 
 <figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/cable-time.png' | relative_url }}"><img src="{{ '/assets/images/cable-time.png' | relative_url }}" alt="Comparaison des temps de calcul des modèles du câble"></a>
-  <figcaption>Temps de calcul mesurés pour un même balayage de dispersion : 0,6 s pour beam-spring SAFE, 6,3 s pour beam-spring WFEM et 2 022 s pour FE-WFEM-GBMS.</figcaption>
+  <figcaption>Temps de calcul mesurés pour un même balayage de dispersion : 0,797 s pour beam-spring SAFE, 2,41 s pour beam-spring WFEM et 902 s pour FE-WFEM-GBMS.</figcaption>
 </figure>
 
 <div class="metric-strip">
