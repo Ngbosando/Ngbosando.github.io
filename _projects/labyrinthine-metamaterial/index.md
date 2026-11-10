@@ -66,10 +66,6 @@ Des conditions de périodicité sont imposées aux frontières opposées de la c
   </figure>
 </div>
 
-<figure class="figure-wide technical-figure single-figure">
-  <a href="{{ '/assets/images/3D_PMMA_dispersion_plot.png' | relative_url }}"><img src="{{ '/assets/images/3D_PMMA_dispersion_plot.png' | relative_url }}" alt="Dispersion du métamatériau PMMA calculée avec un modèle extrudé 2,5D"></a>
-</figure>
-
 <div class="result-line"><b>Implémentation APDL</b><span><a href="{{ '/assets/images/2D%20Ansys%20Floquet%20BC%20WORK.txt' | relative_url }}">Script des conditions de Floquet 2D</a> · <a href="{{ '/assets/images/3D%20Ansys%20Floquet%20BC%20work.txt' | relative_url }}">Script pour le modèle 3D</a></span></div>
 
 ## 4. Transmission et couplage vibroacoustique
