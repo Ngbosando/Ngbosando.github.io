@@ -3,7 +3,7 @@ layout: post
 order: 4
 title: Métamatériau labyrinthique & Vibroacoustique
 description: Modélisation de cellules labyrinthiques en PMMA et photopolymère, maillages périodiques 2D/3D, dispersion de Bloch-Floquet et étude de transmission.
-skills: [ANSYS Workbench / APDL, Python, Gmsh OCC, Bloch-Floquet, Calcul éléments finis, Vibroacoustique]
+skills: [Siemens NX, Fusion 360, ANSYS Workbench / APDL, Python, Gmsh OCC, Bloch-Floquet, Vibroacoustique]
 main-image: /assets/images/PMMA%20from%20unit%20cell.png
 permalink: /projects/labyrinthine-metamaterial/
 ---
@@ -12,7 +12,7 @@ permalink: /projects/labyrinthine-metamaterial/
 
 ## 1. Conception des structures labyrinthiques
 
-La cellule de base possède une période de **50 mm**. Ses canaux concentriques et ses jonctions imposent un trajet de propagation allongé au sein d'une géométrie compacte. Deux configurations ont été modélisées en CAO pour étudier leur comportement mécanique et vibroacoustique.
+La cellule de base possède une période de **50 mm**. Ses canaux concentriques et ses jonctions imposent un trajet de propagation allongé au sein d'une géométrie compacte. Deux configurations ont été modélisées en CAO sous **Siemens NX et Fusion 360** pour étudier leur comportement mécanique et vibroacoustique.
 
 <div class="metric-strip">
   <div><b>50 mm</b><span>Période de la cellule</span></div>
@@ -80,6 +80,28 @@ Une étude de transmission sur un quart de guide compare trois configurations nu
   <a href="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}"><img src="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}" alt="Comparaison des transmissions dans un quart de guide sans air, avec air fermé et avec air ouvert"></a>
   <figcaption>Comparaison numérique de transmission de 0 à 2 kHz, suivant la prise en compte de l'air.</figcaption>
 </figure>
+
+## 5. Comparaison numérique avec ANSYS
+
+Pour contrôler les résultats, les réponses de transmission calculées avec **HomoLib / GBMS** ont été confrontées à des résultats de référence **ANSYS** sur le même quart de guide. Deux cas sont documentés : une structure sans air et une configuration avec air ouvert.
+
+<figure class="figure-wide technical-figure single-figure">
+  <a href="{{ '/assets/images/comparaison_cas%20pur%20strucure_ansys_homolib_reference_complete.png' | relative_url }}"><img src="{{ '/assets/images/comparaison_cas%20pur%20strucure_ansys_homolib_reference_complete.png' | relative_url }}" alt="Comparaison de transmission du cas sans air entre ANSYS, la méthode GBMS et HomoLib, avec détail autour du minimum"></a>
+  <figcaption><b>Structure seule :</b> superposition de la référence ANSYS, de la GBMS initiale et des calculs HomoLib, avec un agrandissement de la zone de forte atténuation.</figcaption>
+</figure>
+
+<figure class="figure-wide technical-figure single-figure">
+  <a href="{{ '/assets/images/comparaison_open.png' | relative_url }}"><img src="{{ '/assets/images/comparaison_open.png' | relative_url }}" alt="Comparaison de transmission pour le cas air ouvert entre HomoLib et ANSYS, avec courbe des écarts"></a>
+  <figcaption><b>Air ouvert :</b> comparaison des transmissions HomoLib et ANSYS sur 98 fréquences communes et courbe des écarts en décibels.</figcaption>
+</figure>
+
+<div class="metric-strip">
+  <div><b>0–2 kHz</b><span>Plage de comparaison</span></div>
+  <div><b>98</b><span>Fréquences communes, air ouvert</span></div>
+  <div><b>1,77 dB</b><span>Écart RMS HomoLib / ANSYS, air ouvert</span></div>
+</div>
+
+<div class="result-line"><b>Interprétation</b><span>Le cas purement structurel montre une bonne concordance des courbes. Pour l'air ouvert, les écarts restent faibles sur une grande partie de la bande, avec des différences plus visibles à proximité de certaines résonances. Il s'agit d'une comparaison entre résultats numériques.</span></div>
 
 <div class="result-line"><b>Travail en cours</b><span>Confrontation des modèles de dispersion et de transmission, et mise en place de la chaîne de calcul acoustique couplée dans ANSYS Workbench / Mechanical. Les résultats présentés sont numériques et ne constituent pas une validation expérimentale.</span></div>
 
