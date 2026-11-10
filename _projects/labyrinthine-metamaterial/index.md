@@ -4,7 +4,8 @@ order: 4
 title: Métamatériau labyrinthique & Vibroacoustique
 description: Modélisation de cellules labyrinthiques en PMMA et photopolymère, maillages périodiques 2D/3D, dispersion de Bloch-Floquet et étude de transmission.
 skills: [Siemens NX, Fusion 360, ANSYS Workbench / APDL, Python, Gmsh OCC, Bloch-Floquet, Vibroacoustique]
-main-image: /assets/images/PMMA%20from%20unit%20cell.png
+main-image: /assets/images/Labyrinthine%20metamaterial%20PMMA%20BP%20siemen%20Nx.png
+show_hero_image: true
 permalink: /projects/labyrinthine-metamaterial/
 ---
 
@@ -33,8 +34,8 @@ La cellule de base possède une période de **50 mm**. Ses canaux concentriques 
 </div>
 
 <figure class="figure-wide technical-figure single-figure">
-  <a href="{{ '/assets/images/PMMA%20from%20unit%20cell.png' | relative_url }}"><img src="{{ '/assets/images/PMMA%20from%20unit%20cell.png' | relative_url }}" alt="Vue détaillée d'une cellule labyrinthique extrudée et de ses canaux concentriques"></a>
-  <figcaption>Détail de la géométrie labyrinthique extrudée, à partir de la cellule de base.</figcaption>
+  <a href="{{ '/assets/images/PMMA%20quarter%20symmetry.png' | relative_url }}"><img src="{{ '/assets/images/PMMA%20quarter%20symmetry.png' | relative_url }}" alt="Vue 2D du modèle labyrinthique en PMMA et de ses canaux concentriques"></a>
+  <figcaption>Détail de la géométrie labyrinthique 2D en PMMA (vue de symétrie).</figcaption>
 </figure>
 
 ## 2. Géométrie paramétrique et maillage
@@ -105,4 +106,4 @@ Pour contrôler les résultats, les réponses de transmission calculées avec **
 
 <div class="result-line"><b>Travail en cours</b><span>Il reste à calculer les courbes de dispersion avec couplage fluide-structure, puis à les comparer aux courbes sans fluide pour évaluer l'influence de l'air sur la propagation des ondes et les bandes d'atténuation.</span></div>
 
-Le projet s'appuie notamment sur l'article de Hermann et al. (2024), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, comme référence de modélisation. <a href="{{ '/assets/images/Labyrinthine%20metamaterial%20from%20unit%20cell.pdf' | relative_url }}">Voir la vue de la structure (PDF)</a>.
+Le projet s'appuie notamment sur l'article de Hermann et al. (2024), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, comme référence de modélisation. <a href="{{ '/assets/images/Labyrinthine%20metamaterial%20from%20unit%20cell.pdf' | relative_url }}">Voir la géométrie 2D du PMMA (PDF)</a>.
