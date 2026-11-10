@@ -2,7 +2,7 @@
 layout: post
 order: 4
 title: Métamatériau labyrinthique & Vibroacoustique
-description: Étude d'une géométrie labyrinthique adaptée : CAO, maillage 2D/3D, dispersion de Bloch-Floquet et transmission vibroacoustique.
+description: "Étude d’une géométrie labyrinthique adaptée : CAO, maillage 2D/3D, dispersion de Bloch-Floquet et transmission vibroacoustique."
 skills: [Siemens NX, Fusion 360, ANSYS Workbench / APDL, Gmsh, HomoLib / GBMS, Bloch-Floquet, Vibroacoustique]
 main-image: /assets/images/Labyrinthine%20metamaterial%20PMMA%20BP%20siemen%20Nx.png
 show_hero_image: true
