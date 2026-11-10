@@ -34,8 +34,8 @@ La cellule de base possède une période de **50 mm**. Ses canaux concentriques 
 </div>
 
 <figure class="figure-wide technical-figure single-figure">
-  <a href="{{ '/assets/images/PMMA%20quarter%20symmetry.png' | relative_url }}"><img src="{{ '/assets/images/PMMA%20quarter%20symmetry.png' | relative_url }}" alt="Vue 2D du modèle labyrinthique en PMMA et de ses canaux concentriques"></a>
-  <figcaption>Détail de la géométrie labyrinthique 2D en PMMA (vue de symétrie).</figcaption>
+  <a href="{{ '/assets/images/Laby%202D.jpg' | relative_url }}"><img src="{{ '/assets/images/Laby%202D.jpg' | relative_url }}" alt="Vue de la cellule élémentaire labyrinthique 2D en PMMA"></a>
+  <figcaption>Géométrie de la cellule labyrinthique 2D en PMMA.</figcaption>
 </figure>
 
 ## 2. Géométrie paramétrique et maillage
@@ -106,4 +106,4 @@ Pour contrôler les résultats, les réponses de transmission calculées avec **
 
 <div class="result-line"><b>Travail en cours</b><span>Il reste à calculer les courbes de dispersion avec couplage fluide-structure, puis à les comparer aux courbes sans fluide pour évaluer l'influence de l'air sur la propagation des ondes et les bandes d'atténuation.</span></div>
 
-Le projet s'appuie notamment sur l'article de Hermann et al. (2024), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, comme référence de modélisation. <a href="{{ '/assets/images/Labyrinthine%20metamaterial%20from%20unit%20cell.pdf' | relative_url }}">Voir la géométrie 2D du PMMA (PDF)</a>.
+Le projet s'appuie notamment sur l'article de Hermann et al. (2024), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, comme référence de modélisation.
