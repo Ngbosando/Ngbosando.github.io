@@ -33,7 +33,7 @@ La cellule de base possède une période de **50 mm**. Ses canaux concentriques 
   </figure>
 </div>
 
-<figure class="figure-wide technical-figure single-figure">
+<figure class="figure-wide technical-figure single-figure labyrinth-2d-figure">
   <a href="{{ '/assets/images/Laby%202D.jpg' | relative_url }}"><img src="{{ '/assets/images/Laby%202D.jpg' | relative_url }}" alt="Vue de la cellule élémentaire labyrinthique 2D en PMMA"></a>
   <figcaption>Géométrie de la cellule labyrinthique 2D en PMMA.</figcaption>
 </figure>
