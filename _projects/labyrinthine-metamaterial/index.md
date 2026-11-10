@@ -68,7 +68,7 @@ Des conditions de périodicité sont imposées aux frontières opposées de la c
 
 Une étude de transmission sur un quart de guide compare trois configurations numériques : **sans air**, **air fermé** et **air ouvert**. Les réponses sont calculées par réduction de modèle **GBMS (Craig-Bampton et L-CC)**, sur une géométrie adaptée de celle étudiée par Hermann et al. (2024), avec les mêmes conditions de guidage entre les trois cas.
 
-<div class="result-line"><b>Propriétés physiques</b><span>• <b>PMMA :</b> E = 3,14 GPa ; ν = 0,36 ; ρ = 1 230 kg/m³ ; η = 0,04.<br>• <b>Air :</b> ρ = 1,2043 kg/m³ ; c = 343 m/s dans HomoLib ; acoustique compressible linéaire sans écoulement moyen ni pertes visco-thermiques.<br>• <b>Photopolymère :</b> E = 1,49 GPa ; ν = 0,42 ; ρ = 1 210 kg/m³ ; η = 0,10.<br>Les facteurs de perte η s'appliquent aux réponses harmoniques ; les calculs de dispersion 2D sont non amortis.</span></div>
+<div class="result-line"><b>Propriétés physiques</b><span>• <b>PMMA :</b> E = 3,14 GPa ; ν = 0,36 ; ρ = 1 230 kg/m³ ; η = 0,04.<br>• <b>Photopolymère :</b> E = 1,49 GPa ; ν = 0,42 ; ρ = 1 210 kg/m³ ; η = 0,10.<br>• <b>Air :</b> ρ = 1,2043 kg/m³ ; c = 343 m/s dans HomoLib ; acoustique compressible linéaire sans écoulement moyen ni pertes visco-thermiques.<br>Les facteurs de perte η s'appliquent aux réponses harmoniques ; les calculs de dispersion 2D sont non amortis.</span></div>
 
 <figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}"><img src="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}" alt="Comparaison des transmissions dans un quart de guide sans air, avec air fermé et avec air ouvert"></a>
