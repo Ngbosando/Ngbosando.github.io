@@ -1,0 +1,279 @@
+/PREP7
+!=====================================================================
+! PARAMETRES GEOMETRIQUES ET PHYSIQUES
+!=====================================================================
+A = 0.05   ! période a en X (m)
+B = 0.05   ! période en Y (m)
+PI = 3.1415926535
+TOL = 1e-6   
+N_MODES = 12  ! Nombre de modes à extraire
+
+!=====================================================================
+! INITIALISATION FICHIER DE SORTIE
+!=====================================================================
+*CFOPEN, dispersion_results, txt ! Crée le fichier 'dispersion_results.txt'
+
+
+!=====================================================================
+! 1) DUPLICATION DU MAILLAGE (A FAIRE UNE SEULE FOIS AVANT LA BOUCLE)
+!=====================================================================
+! On suppose que le maillage de base existe déjà ici.
+allsel,all
+*get,NMAX0,node,0,num,max
+N_OFF = NMAX0
+
+! --- Duplication des Noeuds ---
+*get,NN0,node,0,count
+*dim,NLIST,array,NN0
+*vget,NLIST(1),node,,nlist
+
+*do,ii,1,NN0
+ nid = NLIST(ii)
+ *get,x,node,nid,loc,x
+ *get,y,node,nid,loc,y
+ *get,z,node,nid,loc,z
+ n,nid+N_OFF,x,y,z
+*enddo
+
+! --- Duplication des Eléments ---
+*get,NE0,elem,0,count
+*dim,ELIST,array,NE0
+*vget,ELIST(1),elem,,elist
+
+*do,ie,1,NE0
+ eid = ELIST(ie)
+ *get,et,elem,eid,attr,type
+ *get,ma,elem,eid,attr,mat
+ *get,rc,elem,eid,attr,real
+ *get,se,elem,eid,attr,sec
+ *get,es,elem,eid,attr,esys
+
+ type,et
+ mat,ma
+ real,rc
+ secnum,se
+ esys,es
+
+ ! Récupération dynamique des noeuds (supporte tri/quad)
+ *dim,ENOD,array,20
+ nnod = 0
+ *do,k,1,20
+  *get,nd,elem,eid,node,k
+  ENOD(k) = nd
+  *if,nd,eq,0,then
+   *exit
+  *endif
+  nnod = nnod + 1
+ *enddo
+
+ ! Création élément décalé
+ *if,nnod,eq,3,then
+  e, ENOD(1)+N_OFF, ENOD(2)+N_OFF, ENOD(3)+N_OFF
+ *elseif,nnod,eq,4,then
+  e, ENOD(1)+N_OFF, ENOD(2)+N_OFF, ENOD(3)+N_OFF, ENOD(4)+N_OFF
+ *elseif,nnod,eq,8,then
+  e, ENOD(1)+N_OFF, ENOD(2)+N_OFF, ENOD(3)+N_OFF, ENOD(4)+N_OFF, ENOD(5)+N_OFF, ENOD(6)+N_OFF, ENOD(7)+N_OFF, ENOD(8)+N_OFF
+ *endif
+*enddo
+
+!=====================================================================
+! 2) IDENTIFICATION DES NOEUDS DE BORD (UNE SEULE FOIS)
+!=====================================================================
+cmsel,s,LEFT
+*get,nL,node,0,count
+*dim,LeftR,array,nL
+*vget,LeftR(1),node,,nlist
+
+cmsel,s,RIGHT
+*get,nR,node,0,count
+*dim,RightR,array,nR
+*vget,RightR(1),node,,nlist
+
+cmsel,s,BOTTOM
+*get,nB,node,0,count
+*dim,BottomR,array,nB
+*vget,BottomR(1),node,,nlist
+
+cmsel,s,TOP
+*get,nT,node,0,count
+*dim,TopR,array,nT
+*vget,TopR(1),node,,nlist
+
+allsel,all
+
+! Coins
+*get,xmin,node,0,loc,x,min
+*get,xmax,node,0,loc,x,max
+*get,ymin,node,0,loc,y,min
+*get,ymax,node,0,loc,y,max
+
+nsel,s,loc,x,xmin,xmin+TOL
+nsel,r,loc,y,ymin,ymin+TOL
+*get,n00,node,0,num,min
+
+nsel,s,loc,x,xmax-TOL,xmax
+nsel,r,loc,y,ymin,ymin+TOL
+*get,n10,node,0,num,min
+
+nsel,s,loc,x,xmin,xmin+TOL
+nsel,r,loc,y,ymax-TOL,ymax
+*get,n01,node,0,num,min
+
+nsel,s,loc,x,xmax-TOL,xmax
+nsel,r,loc,y,ymax-TOL,ymax
+*get,n11,node,0,num,min
+
+n00i = n00 + N_OFF
+n10i = n10 + N_OFF
+n01i = n01 + N_OFF
+n11i = n11 + N_OFF
+
+allsel,all
+
+!=====================================================================
+! 3) BOUCLE DE CALCUL SUR LE NOMBRE D'ONDE (N)
+!=====================================================================
+! Parametres de la boucle : 0 à 1 par pas de 0.05 (21 points)
+N_START = 0
+N_END = 1.0
+N_STEP = 0.05
+*DIM, FREQ_ARR, ARRAY, N_MODES
+
+! On entre dans /SOLU une seule fois, ou à chaque boucle selon préférence
+! Pour ANTYPE,MODAL, on peut rester en SOLU, mais il faut faire CEDELE
+
+*DO, VAL_N, N_START, N_END, N_STEP
+ 
+  /PREP7
+  ! NETTOYAGE DES CE PRECEDENTES (Crucial car PHIX change)
+  CEDELE, ALL
+
+  ! Calculs de phase
+  N = VAL_N
+  KX = (N*PI)/A
+  PHIX = KX*A
+  CX = COS(PHIX)
+  SX = SIN(PHIX)
+
+  !-------------------------------------------------------
+  ! APPLICATION DES CONTRAINTES (COINS)
+  !-------------------------------------------------------
+  ! n10 = n00 * exp(-i*PHIX)
+  CE,NEXT,, n10,UX, 1, n00,UX,-CX, n00i,UX,-SX
+  CE,NEXT,, n10,UY, 1, n00,UY,-CX, n00i,UY,-SX
+  CE,NEXT,, n10i,UX,1, n00,UX, SX, n00i,UX,-CX
+  CE,NEXT,, n10i,UY,1, n00,UY, SX, n00i,UY,-CX
+
+  ! n01 = n00 (phase 0 en Y)
+  CE,NEXT,, n01,UX, 1, n00,UX,-1
+  CE,NEXT,, n01,UY, 1, n00,UY,-1
+  CE,NEXT,, n01i,UX,1, n00i,UX,-1
+  CE,NEXT,, n01i,UY,1, n00i,UY,-1
+
+  ! n11 = n10 (phase 0 en Y)
+  CE,NEXT,, n11,UX, 1, n10,UX,-1
+  CE,NEXT,, n11,UY, 1, n10,UY,-1
+  CE,NEXT,, n11i,UX,1, n10i,UX,-1
+  CE,NEXT,, n11i,UY,1, n10i,UY,-1
+
+  !-------------------------------------------------------
+  ! FLOQUET X : LEFT -> RIGHT
+  !-------------------------------------------------------
+  *do,i,1,nL
+   nLR = LeftR(i)
+   *if,nLR,eq,n00,then
+    *cycle
+   *endif
+   *if,nLR,eq,n01,then
+    *cycle
+   *endif
+
+   *get,yL,node,nLR,loc,y
+   nHR = 0
+   ! Note: optimisation possible ici si mesh regulier, mais on garde votre logique
+   *do,j,1,nR
+    ntest = RightR(j)
+    *get,yR,node,ntest,loc,y
+    *if,ABS(yR-yL),lt,TOL,then
+     nHR = ntest
+     *exit
+    *endif
+   *enddo
+
+   *if,nHR,ne,0,then
+     ! Check coins
+     *if,nHR,ne,n10,and,nHR,ne,n11,then
+       nLI = nLR + N_OFF
+       nHI = nHR + N_OFF
+       CE,NEXT,, nHR,UX, 1, nLR,UX,-CX, nLI,UX,-SX
+       CE,NEXT,, nHR,UY, 1, nLR,UY,-CX, nLI,UY,-SX
+       CE,NEXT,, nHI,UX, 1, nLR,UX, SX, nLI,UX,-CX
+       CE,NEXT,, nHI,UY, 1, nLR,UY, SX, nLI,UY,-CX
+     *endif
+   *endif
+  *enddo
+
+  !-------------------------------------------------------
+  ! PERIODIQUE Y : BOTTOM -> TOP
+  !-------------------------------------------------------
+  *do,i,1,nB
+   nBR = BottomR(i)
+   *if,nBR,eq,n00,then
+    *cycle
+   *endif
+   *if,nBR,eq,n10,then
+    *cycle
+   *endif
+
+   *get,xB,node,nBR,loc,x
+   nTR = 0
+   *do,j,1,nT
+    ntest = TopR(j)
+    *get,xT,node,ntest,loc,x
+    *if,ABS(xT-xB),lt,TOL,then
+     nTR = ntest
+     *exit
+    *endif
+   *enddo
+
+   *if,nTR,ne,0,then
+    *if,nTR,ne,n01,and,nTR,ne,n11,then
+      nBI = nBR + N_OFF
+      nTI = nTR + N_OFF
+      CE,NEXT,, nTR,UX, 1, nBR,UX,-1
+      CE,NEXT,, nTR,UY, 1, nBR,UY,-1
+      CE,NEXT,, nTI,UX, 1, nBI,UX,-1
+      CE,NEXT,, nTI,UY, 1, nBI,UY,-1
+    *endif
+   *endif
+  *enddo
+
+  !-------------------------------------------------------
+  ! RESOLUTION
+  !-------------------------------------------------------
+  /SOLU
+  ANTYPE, MODAL
+  MODOPT, LANB, N_MODES  ! Lancez Block Lanczos pour N_MODES
+  MXPAND, N_MODES     ! Expansion des modes (nécessaire pour voir les déformées si besoin)
+  SOLVE
+
+  !-------------------------------------------------------
+    ! POST-TRAITEMENT ET ECRITURE
+    !-------------------------------------------------------
+    /POST1
+    ! Récupération des fréquences
+    *DO, imode, 1, N_MODES
+        *GET, f_val, MODE, imode, FREQ
+        FREQ_ARR(imode) = f_val
+    *ENDDO
+
+    ! Ecriture dans le fichier
+    ! Nous avons 14 variables : N, KX, puis 12 fréquences
+    ! Note : *VWRITE supporte max 19 arguments, donc 12 modes ça passe.
+    
+    *VWRITE, N, KX, FREQ_ARR(1), FREQ_ARR(2), FREQ_ARR(3), FREQ_ARR(4), FREQ_ARR(5), FREQ_ARR(6), FREQ_ARR(7), FREQ_ARR(8), FREQ_ARR(9), FREQ_ARR(10), FREQ_ARR(11), FREQ_ARR(12)
+(E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6, 2X, E14.6)
+
+*ENDDO
+
+*CFCLOS ! Fermeture du fichier

@@ -1,0 +1,229 @@
+/PREP7
+!=====================================================================
+! PARAMETRES
+!=====================================================================
+A = 0.05           ! Période en X
+B = 0.05           ! Période en Y
+PI = 3.1415926535
+TOL = 1e-6 
+N_MODES = 20       ! Nombre de modes demandé
+t = ARG1*1e+3           ! épaisseur de la cellule
+file_name = 'dispersion_result_%t%'
+
+!=====================================================================
+! 1) DUPLICATION DU MAILLAGE (Reel -> Imaginaire)
+!=====================================================================
+allsel,all
+*get,NMAX0,node,0,num,max
+N_OFF = NMAX0 * 2
+
+! --- Copie des Noeuds ---
+*get,NN0,node,0,count
+*dim,NLIST,array,NN0
+*vget,NLIST(1),node,,nlist
+
+*do,ii,1,NN0
+ nid = NLIST(ii)
+ *get,x,node,nid,loc,x
+ *get,y,node,nid,loc,y
+ *get,z,node,nid,loc,z
+ n,nid+N_OFF,x,y,z
+*enddo
+
+! --- Copie des Eléments ---
+*get,NE0,elem,0,count
+*dim,ELIST,array,NE0
+*vget,ELIST(1),elem,,elist
+
+*do,ie,1,NE0
+ eid = ELIST(ie)
+ *get,et,elem,eid,attr,type
+ *get,ma,elem,eid,attr,mat
+ *get,rc,elem,eid,attr,real
+ *get,se,elem,eid,attr,sec
+ *get,es,elem,eid,attr,esys
+
+ type,et
+ mat,ma
+ real,rc
+ secnum,se
+ esys,es
+
+ *dim,ENOD,array,20
+ nnod = 0
+ *do,k,1,20
+  *get,nd,elem,eid,node,k
+  ENOD(k) = nd
+  *if,nd,eq,0,then
+   *exit
+  *endif
+  nnod = nnod + 1
+ *enddo
+
+ ! Génération élément décalé (Compatible Solid 185/186/187)
+ *if,nnod,le,8,then
+   e, ENOD(1)+N_OFF, ENOD(2)+N_OFF, ENOD(3)+N_OFF, ENOD(4)+N_OFF, ENOD(5)+N_OFF, ENOD(6)+N_OFF, ENOD(7)+N_OFF, ENOD(8)+N_OFF
+ *else
+   e, ENOD(1)+N_OFF, ENOD(2)+N_OFF, ENOD(3)+N_OFF, ENOD(4)+N_OFF, ENOD(5)+N_OFF, ENOD(6)+N_OFF, ENOD(7)+N_OFF, ENOD(8)+N_OFF
+   emore, ENOD(9)+N_OFF, ENOD(10)+N_OFF, ENOD(11)+N_OFF, ENOD(12)+N_OFF, ENOD(13)+N_OFF, ENOD(14)+N_OFF, ENOD(15)+N_OFF, ENOD(16)+N_OFF
+   emore, ENOD(17)+N_OFF, ENOD(18)+N_OFF, ENOD(19)+N_OFF, ENOD(20)+N_OFF
+ *endif
+*enddo
+
+!=====================================================================
+! 2) PREPARATION DES TABLEAUX DE NOEUDS
+!=====================================================================
+! Nodes LEFT
+cmsel,s,LEFT
+*get,nL,node,0,count
+*dim,Arr_L,array,nL
+*vget,Arr_L(1),node,,nlist
+
+! Nodes RIGHT
+cmsel,s,RIGHT
+*get,nR,node,0,count
+*dim,Arr_R,array,nR
+*vget,Arr_R(1),node,,nlist
+
+! Nodes BOTTOM
+cmsel,s,BOTTOM
+*get,nB,node,0,count
+*dim,Arr_B,array,nB
+*vget,Arr_B(1),node,,nlist
+
+! Nodes TOP
+cmsel,s,TOP
+*get,nT,node,0,count
+*dim,Arr_T,array,nT
+*vget,Arr_T(1),node,,nlist
+
+allsel,all
+
+!=====================================================================
+! 3) BOUCLE DE DISPERSION
+!=====================================================================
+N_START = 0
+N_END = 1.0
+N_STEP = 0.05
+! Calcul du nombre de pas pour dimensionner le tableau de sortie
+N_STEPS = NINT((N_END - N_START)/N_STEP) + 1
+N_COLS = 2 + N_MODES  ! Col 1=N, Col 2=KX, Cols 3+=Freqs
+
+*DIM, RESULTS, ARRAY, N_STEPS, N_COLS
+ISTEP = 0
+
+*DO, VAL_N, N_START, N_END, N_STEP
+ ISTEP = ISTEP + 1
+
+ /PREP7
+ CEDELE, ALL
+
+ N_wave = VAL_N
+ KX = (N_wave*PI)/A
+ CX = COS(KX*A)
+ SX = SIN(KX*A)
+
+ !-------------------------------------------------------
+ ! A. PERIODICITE FLOQUET X (LEFT <-> RIGHT)
+ !-------------------------------------------------------
+ *do,i,1,nR
+  nodeR = Arr_R(i)
+  *get,yR,node,nodeR,loc,y
+  *get,zR,node,nodeR,loc,z
+  
+  nodeL = 0
+  *do,j,1,nL
+   testL = Arr_L(j)
+   *get,yL,node,testL,loc,y
+   *get,zL,node,testL,loc,z
+   dist = SQRT((yL-yR)**2 + (zL-zR)**2)
+   *if,dist,lt,TOL,then
+    nodeL = testL
+    *exit
+   *endif
+  *enddo
+
+  *if,nodeL,gt,0,then
+    nR_i = nodeR + N_OFF
+    nL_i = nodeL + N_OFF
+    
+    CE,NEXT,, nodeR,UX, 1, nodeL,UX,-CX, nL_i,UX,-SX
+    CE,NEXT,, nodeR,UY, 1, nodeL,UY,-CX, nL_i,UY,-SX
+    CE,NEXT,, nodeR,UZ, 1, nodeL,UZ,-CX, nL_i,UZ,-SX
+    
+    CE,NEXT,, nR_i,UX, 1, nodeL,UX, SX, nL_i,UX,-CX
+    CE,NEXT,, nR_i,UY, 1, nodeL,UY, SX, nL_i,UY,-CX
+    CE,NEXT,, nR_i,UZ, 1, nodeL,UZ, SX, nL_i,UZ,-CX
+  *endif
+ *enddo
+
+ !-------------------------------------------------------
+ ! B. PERIODICITE SIMPLE Y (BOTTOM <-> TOP)
+ !-------------------------------------------------------
+ *do,i,1,nT
+  nodeT = Arr_T(i)
+  *get,xT,node,nodeT,loc,x
+  
+  ! Eviter le conflit au coin (X=A) déjà traité par Floquet
+  *if,ABS(xT-A),LT,TOL, CYCLE 
+
+  *get,zT,node,nodeT,loc,z
+  
+  nodeB = 0
+  *do,j,1,nB
+   testB = Arr_B(j)
+   *get,xB,node,testB,loc,x
+   *get,zB,node,testB,loc,z
+   dist = SQRT((xB-xT)**2 + (zB-zT)**2)
+   *if,dist,lt,TOL,then
+    nodeB = testB
+    *exit
+   *endif
+  *enddo
+
+  *if,nodeB,gt,0,then
+    nT_i = nodeT + N_OFF
+    nB_i = nodeB + N_OFF
+    
+    CE,NEXT,, nodeT,UX, 1, nodeB,UX,-1
+    CE,NEXT,, nodeT,UY, 1, nodeB,UY,-1
+    CE,NEXT,, nodeT,UZ, 1, nodeB,UZ,-1
+    
+    CE,NEXT,, nT_i,UX, 1, nB_i,UX,-1
+    CE,NEXT,, nT_i,UY, 1, nB_i,UY,-1
+    CE,NEXT,, nT_i,UZ, 1, nB_i,UZ,-1
+  *endif
+ *enddo
+
+ !-------------------------------------------------------
+ ! RESOLUTION
+ !-------------------------------------------------------
+ /SOLU
+ ANTYPE, MODAL
+ MODOPT, LANB, N_MODES
+ MXPAND, N_MODES
+ SOLVE
+
+ !-------------------------------------------------------
+ ! STOCKAGE DES RESULTATS
+ !-------------------------------------------------------
+ /POST1
+ RESULTS(ISTEP, 1) = N_wave
+ RESULTS(ISTEP, 2) = KX
+ 
+ *DO, imode, 1, N_MODES
+     *GET, f_val, MODE, imode, FREQ
+     RESULTS(ISTEP, 2+imode) = f_val
+ *ENDDO
+
+*ENDDO
+
+!=====================================================================
+! 4) ECRITURE FICHIER FINAL
+!=====================================================================
+! On écrit toute la matrice d'un coup. JIK signifie qu'on parcourt 
+! les colonnes (J) pour chaque ligne (I) -> Format tabulaire classique.
+*MWRITE, RESULTS(1,1), dispersion_results, txt,, JIK, N_COLS, N_STEPS
+(22E14.6)
+*MWRITE, RESULTS(1,1), C:\Users\installadm\Desktop\Python\Projects\temp\%file_name%, txt,, JIK, N_COLS, N_STEPS
+(23E14.6)
