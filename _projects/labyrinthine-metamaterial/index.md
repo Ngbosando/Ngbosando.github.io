@@ -103,6 +103,6 @@ Pour contrôler les résultats, les réponses de transmission calculées avec **
 
 <div class="result-line"><b>Interprétation</b><span>Le cas purement structurel montre une bonne concordance des courbes. Pour l'air ouvert, les écarts restent faibles sur une grande partie de la bande, avec des différences plus visibles à proximité de certaines résonances. Il s'agit d'une comparaison entre résultats numériques.</span></div>
 
-<div class="result-line"><b>Travail en cours</b><span>Confrontation des modèles de dispersion et de transmission, et mise en place de la chaîne de calcul acoustique couplée dans ANSYS Workbench / Mechanical. Les résultats présentés sont numériques et ne constituent pas une validation expérimentale.</span></div>
+<div class="result-line"><b>Travail en cours</b><span>Il reste à calculer les courbes de dispersion avec couplage fluide-structure, puis à les comparer aux courbes sans fluide pour évaluer l'influence de l'air sur la propagation des ondes et les bandes d'atténuation.</span></div>
 
 Le projet s'appuie notamment sur l'article de Hermann et al. (2024), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, comme référence de modélisation. <a href="{{ '/assets/images/Labyrinthine%20metamaterial%20from%20unit%20cell.pdf' | relative_url }}">Voir la vue de la structure (PDF)</a>.
