@@ -57,13 +57,18 @@ Des conditions de périodicité sont imposées aux frontières opposées de la c
   </figure>
 </div>
 
+<div class="metric-strip">
+  <div><b>1 512 Hz</b><span>Bande interdite PMMA 2D : 725–2 237 Hz</span></div>
+  <div><b>1 030 Hz</b><span>Bande interdite photopolymère 2D : 492–1 522 Hz</span></div>
+</div>
+
 <div class="result-line"><b>Implémentation APDL</b><span><a href="{{ '/assets/images/2D%20Ansys%20Floquet%20BC%20WORK.txt' | relative_url }}">Script des conditions de Floquet 2D</a> · <a href="{{ '/assets/images/3D%20Ansys%20Floquet%20BC%20work.txt' | relative_url }}">Script pour le modèle 3D</a></span></div>
 
 ## 4. Transmission et couplage vibroacoustique
 
 Une étude de transmission sur un quart de guide compare trois configurations numériques : **sans air**, **air fermé** et **air ouvert**. Les réponses sont calculées par réduction de modèle **GBMS (Craig-Bampton et L-CC)**, sur une géométrie adaptée de celle étudiée par Hermann et al. (2024), avec les mêmes conditions de guidage entre les trois cas.
 
-<div class="result-line"><b>Propriétés physiques</b><span><b>PMMA, cas de transmission documenté :</b> E = 1,49 GPa ; ν = 0,42 ; ρ = 1 210 kg/m³ ; facteur de perte structural η = 0,10. <b>Air :</b> ρ = 1,2043 kg/m³ ; c = 343 m/s ; acoustique compressible linéaire, sans écoulement moyen ni pertes visco-thermiques. <b>Photopolymère :</b> E, ρ et amortissement à confirmer à partir des réglages de l'étude de dispersion. Les valeurs PMMA/air proviennent du relevé de calcul du 6 novembre et restent à confronter aux dernières modifications.</span></div>
+<div class="result-line"><b>Propriétés physiques</b><span><b>PMMA :</b> E = 3,14 GPa ; ν = 0,36 ; ρ = 1 230 kg/m³ ; η = 0,04. <b>Photopolymère :</b> E = 1,49 GPa ; ν = 0,42 ; ρ = 1 210 kg/m³ ; η = 0,10. Les facteurs de perte η concernent les réponses harmoniques ; les calculs de dispersion 2D sont non amortis. <b>Air :</b> ρ = 1,2043 kg/m³ ; c = 343 m/s dans le calcul HomoLib ; acoustique compressible linéaire sans écoulement moyen ni pertes visco-thermiques.</span></div>
 
 <figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}"><img src="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}" alt="Comparaison des transmissions dans un quart de guide sans air, avec air fermé et avec air ouvert"></a>
@@ -87,7 +92,7 @@ Pour contrôler les résultats, les réponses de transmission calculées avec **
 </figure>
 
 <div class="metric-strip">
-  <div><b>0–2 kHz</b><span>Plage de comparaison</span></div>
+  <div><b>148 202 → 490</b><span>DDL solides → coordonnées GBMS, base initiale du quart guidé</span></div>
   <div><b>98</b><span>Fréquences communes, air ouvert</span></div>
   <div><b>1,77 dB</b><span>Écart RMS inter-solveurs, cause à clarifier</span></div>
 </div>
@@ -96,4 +101,4 @@ Pour contrôler les résultats, les réponses de transmission calculées avec **
 
 <div class="result-line"><b>Travail en cours</b><span>Il reste à calculer les courbes de dispersion avec couplage fluide-structure, puis à les comparer aux courbes sans fluide pour évaluer l'influence de l'air sur la propagation des ondes et les bandes d'atténuation.</span></div>
 
-L'article de Hermann et al. (2024), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, sert de référence scientifique ; l'étude présentée utilise une **géométrie adaptée**, et non une reproduction à l'identique.
+L'[article de Hermann et al. (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11391290/), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, fournit les propriétés matériaux et les bandes interdites de référence. L'étude présentée utilise une **géométrie adaptée**, et non une reproduction à l'identique.
