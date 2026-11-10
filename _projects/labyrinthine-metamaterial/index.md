@@ -2,25 +2,18 @@
 layout: post
 order: 4
 title: Métamatériau labyrinthique & Vibroacoustique
-description: Modélisation de cellules labyrinthiques en PMMA et photopolymère, maillages périodiques 2D/3D, dispersion de Bloch-Floquet et étude de transmission.
-skills: [Siemens NX, Fusion 360, ANSYS Workbench / APDL, Python, Gmsh OCC, Bloch-Floquet, Vibroacoustique]
+description: Étude d'une géométrie labyrinthique adaptée : CAO, maillage 2D/3D, dispersion de Bloch-Floquet et transmission vibroacoustique.
+skills: [Siemens NX, Fusion 360, ANSYS Workbench / APDL, Gmsh, HomoLib / GBMS, Bloch-Floquet, Vibroacoustique]
 main-image: /assets/images/Labyrinthine%20metamaterial%20PMMA%20BP%20siemen%20Nx.png
 show_hero_image: true
 permalink: /projects/labyrinthine-metamaterial/
 ---
 
-<div class="project-intro"><b>Objectif :</b><span>Étudier la propagation des ondes dans des structures labyrinthiques, depuis la génération paramétrique d'une cellule jusqu'à l'analyse de dispersion et de transmission. Le travail porte sur deux matériaux, le PMMA et un photopolymère, avec des modèles 2D et des géométries extrudées.</span></div>
+<div class="project-intro"><b>Objectif :</b><span>Étudier la propagation des ondes dans des structures labyrinthiques à partir de géométries CAO, de calculs de dispersion et de réponses de transmission. Le travail distingue les cellules en PMMA et en photopolymère, ainsi qu'une géométrie adaptée pour l'étude vibroacoustique.</span></div>
 
 ## 1. Conception des structures labyrinthiques
 
 La cellule de base possède une période de **50 mm**. Ses canaux concentriques et ses jonctions imposent un trajet de propagation allongé au sein d'une géométrie compacte. Deux configurations ont été modélisées en CAO sous **Siemens NX et Fusion 360** pour étudier leur comportement mécanique et vibroacoustique.
-
-<div class="metric-strip">
-  <div><b>50 mm</b><span>Période de la cellule</span></div>
-  <div><b>2</b><span>Matériaux étudiés</span></div>
-  <div><b>2D / 3D</b><span>Configurations EF</span></div>
-  <div><b>ANSYS</b><span>Calcul modal et APDL</span></div>
-</div>
 
 <div class="figure-pair equal-figures">
   <figure class="technical-figure">
@@ -38,18 +31,16 @@ La cellule de base possède une période de **50 mm**. Ses canaux concentriques 
   <figcaption>Géométrie de la cellule labyrinthique 2D en PMMA.</figcaption>
 </figure>
 
-## 2. Géométrie paramétrique et maillage
+## 2. Géométrie et maillage
 
-Un script **Python / Gmsh OCC** génère les canaux, les jonctions, les zones solides et les maillages. Il prend en charge des modèles 2D et 3D, identifie les frontières périodiques et exporte les maillages au format <code>.inp</code> pour leur exploitation dans ANSYS.
+Les géométries CAO sont préparées au format **STEP**, puis discrétisées pour les études de dispersion 2D et les modèles de transmission 3D. Le maillage du quart de structure et des domaines d'air est préparé sous **Gmsh**, avec identification des interfaces fluide-structure, puis exporté au format <code>.inp</code> pour ANSYS.
 
 <div class="pipeline">
-  <div><b>Gmsh OCC</b><small>géométrie paramétrique<br>de la cellule</small></div>
-  <div><b>Maillage EF</b><small>2D et 3D<br>frontières identifiées</small></div>
-  <div><b>ANSYS / APDL</b><small>conditions périodiques<br>Bloch-Floquet</small></div>
-  <div><b>Résultats</b><small>courbes de dispersion<br>et transmission</small></div>
+  <div><b>CAO / STEP</b><small>Siemens NX<br>et Fusion 360</small></div>
+  <div><b>Gmsh</b><small>maillages EF<br>et interfaces FSI</small></div>
+  <div><b>ANSYS / APDL</b><small>dispersion<br>Bloch-Floquet</small></div>
+  <div><b>HomoLib / ANSYS</b><small>transmission<br>avec et sans air</small></div>
 </div>
-
-<div class="result-line"><b>Code source</b><span><a href="https://github.com/Ngbosando/Projects/blob/main/Labyrinthine_metamaterial/Laby.py" target="_blank" rel="noopener noreferrer">Génération de la géométrie et du maillage avec Python / Gmsh</a></span></div>
 
 ## 3. Dispersion de Bloch-Floquet
 
@@ -70,12 +61,16 @@ Des conditions de périodicité sont imposées aux frontières opposées de la c
 
 ## 4. Transmission et couplage vibroacoustique
 
-Une étude de transmission sur un quart de guide compare trois configurations numériques : **sans air**, **air fermé** et **air ouvert**. La figure ci-dessous présente ces réponses calculées par une approche de réduction de modèle **GBMS (Craig-Bampton et L-CC)** avec les mêmes conditions de guidage.
+Une étude de transmission sur un quart de guide compare trois configurations numériques : **sans air**, **air fermé** et **air ouvert**. Les réponses sont calculées par réduction de modèle **GBMS (Craig-Bampton et L-CC)**, sur une géométrie adaptée de celle étudiée par Hermann et al. (2024), avec les mêmes conditions de guidage entre les trois cas.
+
+<div class="result-line"><b>Propriétés physiques</b><span><b>PMMA, cas de transmission documenté :</b> E = 1,49 GPa ; ν = 0,42 ; ρ = 1 210 kg/m³ ; facteur de perte structural η = 0,10. <b>Air :</b> ρ = 1,2043 kg/m³ ; c = 343 m/s ; acoustique compressible linéaire, sans écoulement moyen ni pertes visco-thermiques. <b>Photopolymère :</b> E, ρ et amortissement à confirmer à partir des réglages de l'étude de dispersion. Les valeurs PMMA/air proviennent du relevé de calcul du 6 novembre et restent à confronter aux dernières modifications.</span></div>
 
 <figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}"><img src="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}" alt="Comparaison des transmissions dans un quart de guide sans air, avec air fermé et avec air ouvert"></a>
-  <figcaption>Comparaison numérique de transmission de 0 à 2 kHz, suivant la prise en compte de l'air.</figcaption>
+  <figcaption>Transmission mécanique de 0 à 2 kHz : structure seule, cavité d'air fermée et air ouvert.</figcaption>
 </figure>
+
+<div class="result-line"><b>Géométrie adaptée</b><span>Les plaques de l'étude sont plus larges et la cavité diffère de la configuration de référence de Hermann et al. Les transmissions <b>sans air</b> et <b>air fermé</b> sont ici plus proches que dans l'article. La géométrie pourrait contribuer à cette différence ; son influence reste à quantifier séparément.</span></div>
 
 ## 5. Comparaison numérique avec ANSYS
 
@@ -94,11 +89,11 @@ Pour contrôler les résultats, les réponses de transmission calculées avec **
 <div class="metric-strip">
   <div><b>0–2 kHz</b><span>Plage de comparaison</span></div>
   <div><b>98</b><span>Fréquences communes, air ouvert</span></div>
-  <div><b>1,77 dB</b><span>Écart RMS HomoLib / ANSYS, air ouvert</span></div>
+  <div><b>1,77 dB</b><span>Écart RMS inter-solveurs, cause à clarifier</span></div>
 </div>
 
-<div class="result-line"><b>Interprétation</b><span>Le cas purement structurel montre une bonne concordance des courbes. Pour l'air ouvert, les écarts restent faibles sur une grande partie de la bande, avec des différences plus visibles à proximité de certaines résonances. Il s'agit d'une comparaison entre résultats numériques.</span></div>
+<div class="result-line"><b>Interprétation</b><span>Le cas structurel montre une bonne concordance. Pour l'air ouvert, l'écart RMS de 1,77 dB sur les fréquences communes ne peut pas être attribué d'emblée à la troncature GBMS : les contrôles disponibles entre modèle réduit et calcul complet ne suffisent pas à confirmer cette cause. La définition des réponses, les interfaces fluide-structure et les conditions de rayonnement restent à confronter entre HomoLib et ANSYS.</span></div>
 
 <div class="result-line"><b>Travail en cours</b><span>Il reste à calculer les courbes de dispersion avec couplage fluide-structure, puis à les comparer aux courbes sans fluide pour évaluer l'influence de l'air sur la propagation des ondes et les bandes d'atténuation.</span></div>
 
-Le projet s'appuie notamment sur l'article de Hermann et al. (2024), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, comme référence de modélisation.
+L'article de Hermann et al. (2024), *Design and experimental validation of a finite-size labyrinthine metamaterial for vibro-acoustics*, sert de référence scientifique ; l'étude présentée utilise une **géométrie adaptée**, et non une reproduction à l'identique.
