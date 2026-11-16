@@ -33,7 +33,7 @@ La cellule de base possède une période de **50 mm**. Ses canaux concentriques 
 
 ## 2. Géométrie et maillage
 
-Les géométries CAO sont préparées au format **STEP**, puis discrétisées pour les études de dispersion 2D et les modèles de transmission 3D. Le maillage du quart de structure et des domaines d'air est préparé sous **Gmsh**, avec identification des interfaces fluide-structure, puis exporté au format <code>.inp</code> pour ANSYS.
+Les géométries CAO sont préparées au format **STEP**, puis discrétisées pour les études de dispersion 2,5D et les modèles de transmission 3D. Le maillage du quart de structure et des domaines d'air est préparé sous **Gmsh**, avec identification des interfaces fluide-structure, puis exporté au format <code>.inp</code> pour ANSYS.
 
 <div class="pipeline">
   <div><b>CAO / STEP</b><small>Siemens NX<br>et Fusion 360</small></div>
@@ -48,19 +48,16 @@ Des conditions de périodicité sont imposées aux frontières opposées de la c
 
 <div class="figure-pair equal-figures">
   <figure class="technical-figure">
-    <a href="{{ '/assets/images/PMMA_dispersion_plot.png' | relative_url }}"><img src="{{ '/assets/images/PMMA_dispersion_plot.png' | relative_url }}" alt="Courbes de dispersion du métamatériau en PMMA en déformation plane 2D"></a>
-    <figcaption>PMMA : dispersion calculée en déformation plane (2D).</figcaption>
+    <a href="{{ '/assets/images/3D_PMMA_dispersion_plot.png' | relative_url }}"><img src="{{ '/assets/images/3D_PMMA_dispersion_plot.png' | relative_url }}" alt="Courbes de dispersion du métamatériau en PMMA en 2,5D"></a>
+    <figcaption>PMMA : dispersion calculée en 2,5D.</figcaption>
   </figure>
   <figure class="technical-figure">
-    <a href="{{ '/assets/images/photopolymer_dispersion_plot.png' | relative_url }}"><img src="{{ '/assets/images/photopolymer_dispersion_plot.png' | relative_url }}" alt="Courbes de dispersion du métamatériau photopolymère en déformation plane 2D"></a>
-    <figcaption>Photopolymère : dispersion calculée en déformation plane (2D).</figcaption>
+    <a href="{{ '/assets/images/3D_photopolymer_dispersion_plot.png' | relative_url }}"><img src="{{ '/assets/images/3D_photopolymer_dispersion_plot.png' | relative_url }}" alt="Courbes de dispersion du métamatériau photopolymère en 2,5D"></a>
+    <figcaption>Photopolymère : dispersion calculée en 2,5D.</figcaption>
   </figure>
 </div>
 
-<div class="metric-strip">
-  <div><b>1 512 Hz</b><span>Bande interdite PMMA 2D : 725–2 237 Hz</span></div>
-  <div><b>1 030 Hz</b><span>Bande interdite photopolymère 2D : 492–1 522 Hz</span></div>
-</div>
+Les courbes présentées correspondent aux modèles **2,5D** du PMMA et du photopolymère.
 
 <div class="result-line"><b>Implémentation APDL</b><span><a href="{{ '/assets/images/2D%20Ansys%20Floquet%20BC%20WORK.txt' | relative_url }}">Script des conditions de Floquet 2D</a> · <a href="{{ '/assets/images/3D%20Ansys%20Floquet%20BC%20work.txt' | relative_url }}">Script pour le modèle 3D</a></span></div>
 
@@ -68,7 +65,7 @@ Des conditions de périodicité sont imposées aux frontières opposées de la c
 
 Une étude de transmission sur un quart de guide compare trois configurations numériques : **sans air**, **air fermé** et **air ouvert**. Les réponses sont calculées par réduction de modèle **GBMS (Craig-Bampton et L-CC)**, sur une géométrie adaptée de celle étudiée par Hermann et al. (2024), avec les mêmes conditions de guidage entre les trois cas.
 
-<div class="result-line"><b>Propriétés physiques</b><span>• <b>PMMA :</b> E = 3,14 GPa ; ν = 0,36 ; ρ = 1 230 kg/m³ ; η = 0,04.<br>• <b>Photopolymère :</b> E = 1,49 GPa ; ν = 0,42 ; ρ = 1 210 kg/m³ ; η = 0,10.<br>• <b>Air :</b> ρ = 1,2043 kg/m³ ; c = 343 m/s dans HomoLib ; acoustique compressible linéaire sans écoulement moyen ni pertes visco-thermiques.<br>Les facteurs de perte η s'appliquent aux réponses harmoniques ; les calculs de dispersion 2D sont non amortis.</span></div>
+<div class="result-line"><b>Propriétés physiques</b><span>• <b>PMMA :</b> E = 3,14 GPa ; ν = 0,36 ; ρ = 1 230 kg/m³ ; η = 0,04.<br>• <b>Photopolymère :</b> E = 1,49 GPa ; ν = 0,42 ; ρ = 1 210 kg/m³ ; η = 0,10.<br>• <b>Air :</b> ρ = 1,2043 kg/m³ ; c = 343 m/s dans HomoLib ; acoustique compressible linéaire sans écoulement moyen ni pertes visco-thermiques.<br>Les facteurs de perte η s'appliquent aux réponses harmoniques ; les calculs de dispersion 2,5D sont non amortis.</span></div>
 
 <figure class="figure-wide technical-figure single-figure">
   <a href="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}"><img src="{{ '/assets/images/transmission_trois_cas.png' | relative_url }}" alt="Comparaison des transmissions dans un quart de guide sans air, avec air fermé et avec air ouvert"></a>
