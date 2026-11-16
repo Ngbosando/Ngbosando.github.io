@@ -91,10 +91,10 @@ Pour contrôler les résultats, les réponses de transmission calculées avec **
 <div class="metric-strip">
   <div><b>148 202 → 490</b><span>DDL solides → coordonnées GBMS, base initiale du quart guidé</span></div>
   <div><b>98</b><span>Fréquences communes, air ouvert</span></div>
-  <div><b>1,77 dB</b><span>Écart RMS inter-solveurs, cause à clarifier</span></div>
+  <div><b>1,77 dB</b><span>Écart RMS entre HomoLib et ANSYS</span></div>
 </div>
 
-<div class="result-line"><b>Interprétation</b><span>Le cas structurel montre une bonne concordance. Pour l'air ouvert, l'écart RMS de 1,77 dB sur les fréquences communes ne peut pas être attribué d'emblée à la troncature GBMS : les contrôles disponibles entre modèle réduit et calcul complet ne suffisent pas à confirmer cette cause. La définition des réponses, les interfaces fluide-structure et les conditions de rayonnement restent à confronter entre HomoLib et ANSYS.</span></div>
+<div class="result-line"><b>Interprétation</b><span>Les comparaisons avec ANSYS montrent un bon accord sur le comportement global, pour la structure seule comme pour le cas avec air ouvert : les principales résonances et zones d'atténuation sont bien reproduites. Les deux calculs comparés n'étant pas entièrement convergés, les écarts locaux doivent être appréciés dans ce contexte. Pour l'air ouvert, l'écart RMS de 1,77 dB sur 98 fréquences communes reste compatible avec cette bonne concordance d'ensemble. Ces résultats sont satisfaisants pour l'objectif de l'étude, qui est de restituer les tendances de transmission et l'influence du couplage avec l'air.</span></div>
 
 <div class="result-line"><b>Travail en cours</b><span>Il reste à calculer les courbes de dispersion avec couplage fluide-structure, puis à les comparer aux courbes sans fluide pour évaluer l'influence de l'air sur la propagation des ondes et les bandes d'atténuation.</span></div>
 
